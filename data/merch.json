@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "name": "ILOVEPIRRONS T-Shirt",
+    "price": 25.00,
+    "description": "Classic black t-shirt with pink logo. 100% cotton.",
+    "image": ""
+  },
+  {
+    "id": 2,
+    "name": "Y2K Hoodie",
+    "price": 45.00,
+    "description": "Comfy hoodie with retro design. Perfect for those nostalgic vibes.",
+    "image": ""
+  },
+  {
+    "id": 3,
+    "name": "CD Album - Physical Copy",
+    "price": 15.00,
+    "description": "Limited edition physical CD with exclusive artwork.",
+    "image": ""
+  },
+  {
+    "id": 4,
+    "name": "Baseball Cap",
+    "price": 20.00,
+    "description": "Pink cap with embroidered logo. One size fits all.",
+    "image": ""
+  },
+  {
+    "id": 5,
+    "name": "Stickers Pack",
+    "price": 8.00,
+    "description": "Set of 10 Y2K themed stickers. Perfect for laptops and water bottles.",
+    "image": ""
+  },
+  {
+    "id": 6,
+    "name": "Poster Set",
+    "price": 12.00,
+    "description": "3 posters with album artwork. Great for decorating your room.",
+    "image": ""
+  },
+  {
+    "id": 7,
+    "name": "Tote Bag",
+    "price": 18.00,
+    "description": "Eco-friendly tote bag with custom design. Perfect for shopping or daily use.",
+    "image": ""
+  },
+  {
+    "id": 8,
+    "name": "Phone Case",
+    "price": 22.00,
+    "description": "Protective phone case with Y2K aesthetic. Available for iPhone and Samsung.",
+    "image": ""
+  }
+]
+

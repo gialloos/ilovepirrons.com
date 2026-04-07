@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILOVEPIRRONS - Blog</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/blog.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">ILOVEPIRRONS</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="blog.html" class="nav-link active">BLOG</a>
+                <a href="live.html" class="nav-link">LIVE</a>
+                <a href="download.html" class="nav-link">DOWNLOAD</a>
+                <a href="merch.html" class="nav-link">MERCH</a>
+                <a href="discografia.html" class="nav-link">DISCOGRAFIA</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="blog-container">
+        <header class="blog-header">
+            <h1 class="glitch-text">PARTE BLOG (UPDATE)</h1>
+            <p class="blog-subtitle">random thoughts & updates</p>
+        </header>
+
+        <div class="blog-feed" id="blog-feed">
+            <!-- Blog posts will be loaded here via JavaScript -->
+        </div>
+    </main>
+
+    <!-- Global App Shell Scripts -->
+    <script src="js/router.js"></script>
+    <script src="js/windows.js"></script>
+    
+    <!-- Data Source (CORS-proof) -->
+    <script src="js/data_discografia.js"></script>
+
+    <!-- Page Logic (Preloaded for SPA) -->
+    <script src="js/blog.js"></script>
+    <script src="js/live.js"></script>
+    <script src="js/download.js"></script>
+    <script src="js/merch.js"></script>
+    <script src="js/discografia.js"></script>
+</body>
+</html>
+

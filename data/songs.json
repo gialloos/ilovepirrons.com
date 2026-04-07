@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "title": "Guilty Pleasure",
+    "artist": "Cobra Starship",
+    "file": "guilty-pleasure.mp3",
+    "duration": "3:24"
+  },
+  {
+    "id": 2,
+    "title": "Damn You Look Good and I'm Drunk",
+    "artist": "Cobra Starship",
+    "file": "damn-you-look-good.mp3",
+    "duration": "3:45"
+  },
+  {
+    "id": 3,
+    "title": "Smile for the Paparazzi",
+    "artist": "Cobra Starship",
+    "file": "smile-paparazzi.mp3",
+    "duration": "3:12"
+  },
+  {
+    "id": 4,
+    "title": "Kiss My Sass",
+    "artist": "Cobra Starship",
+    "file": "kiss-my-sass.mp3",
+    "duration": "3:56"
+  },
+  {
+    "id": 5,
+    "title": "The City Is at War",
+    "artist": "Cobra Starship",
+    "file": "city-is-at-war.mp3",
+    "duration": "3:30"
+  },
+  {
+    "id": 6,
+    "title": "One Day, Robots Will Cry",
+    "artist": "Cobra Starship",
+    "file": "robots-will-cry.mp3",
+    "duration": "4:02"
+  },
+  {
+    "id": 7,
+    "title": "Send My Love to the Dancefloor, I'll See You in Hell",
+    "artist": "Cobra Starship",
+    "file": "send-my-love.mp3",
+    "duration": "3:18"
+  },
+  {
+    "id": 8,
+    "title": "Pete Wentz Is the Only Reason We're Famous",
+    "artist": "Cobra Starship",
+    "file": "pete-wentz.mp3",
+    "duration": "3:45"
+  }
+]
+

@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "title": "welcome to my space",
+    "date": "Dec 30, 2024",
+    "content": "hey everyone! welcome to my new site. this is where i'll be posting updates, thoughts, and random stuff. hope u like it! feel free to interact and leave comments. xoxo",
+    "tags": ["update", "welcome"],
+    "image": ""
+  },
+  {
+    "id": 2,
+    "title": "new music coming soon",
+    "date": "Dec 28, 2024",
+    "content": "working on some new tracks rn. can't wait to share them with u all! it's gonna be fire 🔥 stay tuned for updates",
+    "tags": ["music", "update"],
+    "image": ""
+  },
+  {
+    "id": 3,
+    "title": "random thoughts at 2am",
+    "date": "Dec 25, 2024",
+    "content": "can't sleep. thinking about life, music, everything. sometimes i wonder if anyone actually reads these blog posts lol. but hey, if u're reading this, thanks for being here <3",
+    "tags": ["thoughts", "random"],
+    "image": ""
+  },
+  {
+    "id": 4,
+    "title": "merch drop incoming",
+    "date": "Dec 20, 2024",
+    "content": "new merch coming soon! t-shirts, hoodies, and more. all designed by me with that y2k aesthetic we all love. pre-orders open next week!",
+    "tags": ["merch", "announcement"],
+    "image": ""
+  },
+  {
+    "id": 5,
+    "title": "live stream this friday",
+    "date": "Dec 15, 2024",
+    "content": "doing a live stream this friday at 8pm! we'll be playing some music, chatting, and maybe doing some q&a. don't miss it!",
+    "tags": ["live", "stream"],
+    "image": ""
+  }
+]
+

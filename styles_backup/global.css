@@ -1,0 +1,331 @@
+/* ============================================
+   Y2K / EARLY INTERNET GLOBAL STYLES
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+    /* Y2K Color Palette */
+    --pink: #ff00ff;
+    --hot-pink: #ff1493;
+    --light-blue: #00ffff;
+    --teal: #008080;
+    --black: #000000;
+    --white: #ffffff;
+    --purple: #9370db;
+    --green: #00ff00;
+    --yellow: #ffff00;
+    
+    /* Typography */
+    --font-pixel: 'Press Start 2P', monospace;
+    --font-bitmap: 'VT323', monospace;
+    --font-sans: 'Arial', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: url('../assets/common/plaid-bg.png') repeat;
+    background-size: 200px 200px;
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* If plaid-bg.png doesn't exist, create CSS plaid pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            var(--hot-pink) 0px,
+            var(--hot-pink) 20px,
+            var(--light-blue) 20px,
+            var(--light-blue) 40px,
+            var(--black) 40px,
+            var(--black) 60px,
+            var(--white) 60px,
+            var(--white) 80px
+        );
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Navigation */
+.main-nav {
+    background: var(--black);
+    border-bottom: 3px solid var(--hot-pink);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    font-family: var(--font-pixel);
+    font-size: 18px;
+    color: var(--hot-pink);
+    text-decoration: none;
+    text-shadow: 
+        0 0 10px var(--hot-pink),
+        2px 2px 0 var(--black);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 15px;
+    border: 2px solid var(--light-blue);
+    background: var(--black);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover {
+    background: var(--light-blue);
+    color: var(--black);
+    box-shadow: 
+        0 0 15px var(--light-blue),
+        inset 0 0 10px rgba(0, 255, 255, 0.5);
+    transform: rotate(-3deg) scale(1.1);
+    border-color: var(--hot-pink);
+    position: relative;
+    z-index: 10;
+}
+
+.nav-link.active {
+    background: var(--hot-pink);
+    color: var(--white);
+    border-color: var(--hot-pink);
+    box-shadow: 0 0 15px var(--hot-pink);
+}
+
+/* Glitch Text Effect */
+.glitch-text {
+    font-family: var(--font-pixel);
+    font-size: 48px;
+    color: var(--hot-pink);
+    text-shadow: 
+        3px 3px 0 var(--black),
+        0 0 20px var(--hot-pink),
+        0 0 40px var(--hot-pink);
+    animation: glitch 2s infinite;
+    position: relative;
+}
+
+@keyframes glitch {
+    0%, 100% {
+        transform: translate(0);
+        text-shadow: 3px 3px 0 var(--black), 0 0 20px var(--hot-pink), 0 0 40px var(--hot-pink);
+    }
+    20% {
+        transform: translate(-3px, 3px);
+        text-shadow: -3px -3px 0 var(--light-blue), 0 0 20px var(--light-blue);
+        color: var(--white);
+    }
+    40% {
+        transform: translate(-3px, -3px);
+        text-shadow: 3px -3px 0 var(--green), 0 0 20px var(--green);
+        color: var(--hot-pink);
+    }
+    60% {
+        transform: translate(3px, 3px);
+        text-shadow: -3px 3px 0 var(--yellow), 0 0 20px var(--yellow);
+        color: var(--light-blue);
+    }
+    80% {
+        transform: translate(3px, -3px);
+        text-shadow: 3px 3px 0 var(--hot-pink), 0 0 20px var(--purple);
+        color: var(--white);
+    }
+}
+
+/* Windows XP Style */
+.xp-window {
+    background: #c0c0c0;
+    border: 2px outset #c0c0c0;
+    box-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.5),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+    min-width: 300px;
+    position: relative;
+}
+
+.window-titlebar {
+    background: linear-gradient(to bottom, #0054e3, #0066ff);
+    color: var(--white);
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: move;
+}
+
+.window-title {
+    flex: 1;
+}
+
+.window-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.window-btn {
+    width: 20px;
+    height: 18px;
+    border: 1px outset #c0c0c0;
+    background: #c0c0c0;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.window-btn:active {
+    border: 1px inset #c0c0c0;
+}
+
+.window-addressbar {
+    background: var(--white);
+    padding: 4px 8px;
+    border-bottom: 1px solid #808080;
+    font-size: 11px;
+    color: var(--black);
+}
+
+.window-content {
+    background: var(--white);
+    padding: 15px;
+    color: var(--black);
+    min-height: 200px;
+}
+
+/* Buttons - Glossy Y2K Style */
+.btn-y2k {
+    background: linear-gradient(to bottom, #ff00ff, #cc00cc);
+    border: 2px outset #ff00ff;
+    color: var(--white);
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.2s;
+}
+
+.btn-y2k:hover {
+    background: linear-gradient(to bottom, #ff33ff, #ff00ff);
+    box-shadow: 
+        0 6px 12px rgba(255, 0, 255, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.btn-y2k:active {
+    border: 2px inset #ff00ff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollbar Y2K Style */
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--black);
+    border: 2px solid var(--hot-pink);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--hot-pink), var(--purple));
+    border: 2px outset var(--hot-pink);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--light-blue), var(--hot-pink));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 10px;
+    }
+    
+    .nav-links {
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 12px;
+        padding: 6px 10px;
+        flex: 1 1 auto;
+        text-align: center;
+    }
+    
+    .glitch-text {
+        font-size: clamp(24px, 8vw, 48px);
+    }
+
+    .xp-window {
+        min-width: unset;
+        width: 95vw;
+        max-width: 100%;
+        margin: 10px auto;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
+    .nav-link {
+        font-size: 10px;
+        padding: 5px;
+    }
+}
+

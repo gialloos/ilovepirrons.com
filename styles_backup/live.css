@@ -1,0 +1,184 @@
+/* ============================================
+   LIVE PAGE STYLES
+   ============================================ */
+
+.live-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.live-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.live-subtitle {
+    font-size: 18px;
+    color: var(--light-blue);
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-family: var(--font-pixel);
+    font-size: 24px;
+    color: var(--hot-pink);
+    margin: 40px 0 20px;
+    text-shadow: 2px 2px 0 var(--black);
+}
+
+/* Live Stream */
+.live-stream-section {
+    margin-bottom: 60px;
+}
+
+.stream-container {
+    background: var(--black);
+    border: 4px solid var(--hot-pink);
+    padding: 20px;
+    box-shadow: 0 0 30px var(--hot-pink);
+}
+
+.stream-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, var(--black), #1a1a1a);
+    border: 2px solid var(--light-blue);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stream-overlay {
+    text-align: center;
+}
+
+.stream-text {
+    display: block;
+    font-family: var(--font-pixel);
+    font-size: 32px;
+    color: var(--hot-pink);
+    text-shadow: 0 0 20px var(--hot-pink);
+    margin-bottom: 10px;
+}
+
+.stream-status {
+    display: block;
+    font-size: 18px;
+    color: var(--light-blue);
+    font-weight: bold;
+}
+
+/* Events Grid */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.event-card {
+    background: var(--black);
+    border: 3px outset var(--hot-pink);
+    padding: 20px;
+    box-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.5),
+        inset 0 0 15px rgba(255, 20, 147, 0.1);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--light-blue);
+    box-shadow: 
+        0 0 25px var(--light-blue),
+        4px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.event-card.upcoming {
+    border-color: var(--green);
+    box-shadow: 
+        0 0 20px var(--green),
+        4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.event-card.upcoming::before {
+    content: 'UPCOMING';
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background: var(--green);
+    color: var(--black);
+    padding: 4px 10px;
+    font-size: 10px;
+    font-weight: bold;
+    border: 2px solid var(--green);
+}
+
+.event-date {
+    font-family: var(--font-pixel);
+    font-size: 16px;
+    color: var(--hot-pink);
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 0 var(--black);
+}
+
+.event-title {
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.event-location {
+    font-size: 14px;
+    color: var(--light-blue);
+    margin-bottom: 15px;
+}
+
+.event-description {
+    font-size: 13px;
+    color: var(--white);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.countdown {
+    font-family: var(--font-bitmap);
+    font-size: 18px;
+    color: var(--green);
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid var(--green);
+    margin-top: 15px;
+}
+
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid var(--hot-pink);
+    margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stream-text {
+        font-size: 24px;
+    }
+    
+    .live-container {
+        padding: 20px 10px;
+    }
+}
+

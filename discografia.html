@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILOVEPIRRONS - Discografia</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/discografia.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">ILOVEPIRRONS</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="blog.html" class="nav-link">BLOG</a>
+                <a href="live.html" class="nav-link">LIVE</a>
+                <a href="download.html" class="nav-link">DOWNLOAD</a>
+                <a href="merch.html" class="nav-link">MERCH</a>
+                <a href="discografia.html" class="nav-link active">DISCOGRAFIA</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="discografia-container">
+        <header class="discografia-header">
+            <h1 class="glitch-text">DISCOGRAFIA</h1>
+            <p class="discografia-subtitle">annotated lyrics & meanings</p>
+        </header>
+
+        <!-- Singles List -->
+        <section class="albums-section">
+            <h2 class="section-title">SINGOLI</h2>
+            <div class="albums-grid" id="albums-grid">
+                <!-- Albums will be loaded here via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Song Detail View (Genius Style) -->
+        <section class="song-detail" id="song-detail" style="display: none;">
+            <button class="back-btn" id="back-btn">← BACK TO SINGOLI</button>
+            
+            <div class="song-detail-content">
+                <!-- Left: Lyrics with Annotations -->
+                <div class="lyrics-panel">
+                    <div class="song-header">
+                        <h2 class="song-title" id="song-title"></h2>
+                        <p class="song-artist" id="song-artist"></p>
+                        <p class="song-album" id="song-album"></p>
+                    </div>
+                    <div class="lyrics-container" id="lyrics-container">
+                        <!-- Annotated lyrics will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Right: Sidebar with Info -->
+                <div class="info-sidebar">
+                    <div class="info-card">
+                        <h3>ABOUT</h3>
+                        <p class="song-about" id="song-about"></p>
+                    </div>
+                    <div class="info-card">
+                        <h3>FUN FACTS</h3>
+                        <ul class="fun-facts" id="fun-facts"></ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>CREDITS</h3>
+                        <div class="credits" id="credits"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Annotation Popup -->
+    <div class="annotation-popup" id="annotation-popup">
+        <div class="annotation-content">
+            <button class="annotation-close" id="annotation-close">×</button>
+            <h3 id="annotation-title"></h3>
+            <p id="annotation-text"></p>
+        </div>
+    </div>
+
+    <!-- Global App Shell Scripts -->
+    <script src="js/router.js"></script>
+    <script src="js/windows.js"></script>
+    
+    <!-- Data Source (CORS-proof) -->
+    <script src="js/data_discografia.js"></script>
+
+    <!-- Page Logic (Preloaded for SPA) -->
+    <script src="js/blog.js"></script>
+    <script src="js/live.js"></script>
+    <script src="js/download.js"></script>
+    <script src="js/merch.js"></script>
+    <script src="js/discografia.js"></script>
+</body>
+</html>
+
