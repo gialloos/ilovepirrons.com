@@ -33,16 +33,6 @@
     position: relative;
 }
 
-.ie-cruxxx {
-    position: absolute;
-    top: -70px;
-    right: -40px;
-    width: 130px;
-    pointer-events: none;
-    z-index: 5;
-    image-rendering: pixelated;
-}
-
 /* Hero Section */
 .hero-section {
     position: relative;
