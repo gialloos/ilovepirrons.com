@@ -273,14 +273,26 @@
         margin-bottom: 30px;
     }
 
+    .live-header .glitch-text {
+        font-size: clamp(16px, 6vw, 40px);
+    }
+
     .live-subtitle {
-        font-size: 14px;
+        font-size: clamp(13px, 3.5vw, 18px);
         letter-spacing: 1px;
     }
 
     .section-title {
-        font-size: clamp(16px, 5vw, 24px);
+        font-size: clamp(12px, 4vw, 24px);
         margin: 25px 0 15px;
+    }
+
+    .booking-box {
+        padding: 18px;
+    }
+
+    .booking-text {
+        font-size: 16px;
     }
 }
 
@@ -294,6 +306,10 @@
         font-size: clamp(18px, 6vw, 24px);
     }
 
+    .stream-container {
+        padding: 12px;
+    }
+
     .event-card {
         padding: 15px;
     }
@@ -304,6 +320,15 @@
 
     .event-title {
         font-size: 16px;
+    }
+
+    .booking-email {
+        font-size: clamp(9px, 2.8vw, 14px);
+        letter-spacing: 0;
+    }
+
+    .countdown {
+        font-size: 15px;
     }
 }
 

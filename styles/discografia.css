@@ -374,6 +374,10 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .discografia-container {
+        padding: 20px 10px;
+    }
+
     .discografia-header {
         margin-bottom: 20px;
     }
@@ -382,9 +386,18 @@
         margin-bottom: 30px;
     }
 
+    .discografia-header .glitch-text {
+        font-size: clamp(16px, 6vw, 40px);
+    }
+
     .discografia-subtitle {
-        font-size: 14px;
+        font-size: clamp(13px, 3.5vw, 18px);
         letter-spacing: 1px;
+    }
+
+    .section-title {
+        font-size: clamp(12px, 4vw, 24px);
+        margin: 25px 0 15px;
     }
 }
 
@@ -411,10 +424,6 @@
 }
 
 @media (max-width: 600px) {
-    .discografia-container {
-        padding: 20px 10px;
-    }
-
     .albums-grid {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         gap: 15px;
@@ -445,6 +454,20 @@
     .back-btn {
         font-size: 12px;
         padding: 8px 14px;
+    }
+
+    .info-card {
+        padding: 14px 12px;
+    }
+
+    .info-card h3 {
+        font-size: 13px;
+    }
+
+    .song-about,
+    .fun-facts li,
+    .credits {
+        font-size: 13px;
     }
 }
 
