@@ -1,97 +1,60 @@
 // Windows XP style window dragging functionality
 function initWindows() {
-    const windows = document.querySelectorAll('.xp-window');
-    
-    windows.forEach(window => {
-        // Prevent double init
-        if (window.dataset.initialized) return;
-        window.dataset.initialized = 'true';
+    document.querySelectorAll('.xp-window').forEach(win => {
+        if (win.dataset.initialized) return;
+        win.dataset.initialized = 'true';
 
-        const titlebar = window.querySelector('.window-titlebar');
+        const titlebar = win.querySelector('.window-titlebar');
         if (!titlebar) return;
 
-        let isDragging = false;
-        let currentX;
-        let currentY;
-        let initialX;
-        let initialY;
-        let xOffset = 0;
-        let yOffset = 0;
-        
-        // Get initial position
-        const rect = window.getBoundingClientRect();
+        let isDragging = false, initialX, initialY, xOffset = 0, yOffset = 0;
+
+        const rect = win.getBoundingClientRect();
         xOffset = rect.left;
         yOffset = rect.top;
-        
-        titlebar.addEventListener('mousedown', dragStart);
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('mouseup', dragEnd);
-        
+
         function dragStart(e) {
             if (e.target.classList.contains('window-btn')) return;
-            
-            initialX = e.clientX - xOffset;
-            initialY = e.clientY - yOffset;
-            
-            if (e.target === titlebar || titlebar.contains(e.target)) {
-                isDragging = true;
-                window.style.cursor = 'move';
-            }
+            if (!titlebar.contains(e.target)) return;
+            initialX  = e.clientX - xOffset;
+            initialY  = e.clientY - yOffset;
+            isDragging = true;
+            win.style.cursor = 'move';
+            // Aggiunge i listener solo durante il drag — rimossi su mouseup
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', dragEnd, { once: true });
         }
-        
+
         function drag(e) {
-            if (isDragging) {
-                e.preventDefault();
-                currentX = e.clientX - initialX;
-                currentY = e.clientY - initialY;
-                
-                xOffset = currentX;
-                yOffset = currentY;
-                
-                window.style.transform = `translate(${currentX}px, ${currentY}px)`;
-            }
+            if (!isDragging) return;
+            e.preventDefault();
+            xOffset = e.clientX - initialX;
+            yOffset = e.clientY - initialY;
+            win.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
         }
-        
-        function dragEnd(e) {
-            initialX = currentX;
-            initialY = currentY;
+
+        function dragEnd() {
             isDragging = false;
-            window.style.cursor = 'default';
+            win.style.cursor = 'default';
+            document.removeEventListener('mousemove', drag);
         }
-        
-        // Window controls
-        const closeBtn = window.querySelector('.window-btn.close');
-        const minimizeBtn = window.querySelector('.window-btn.minimize');
-        const maximizeBtn = window.querySelector('.window-btn.maximize');
-        
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                window.style.display = 'none';
-            });
-        }
-        
-        if (minimizeBtn) {
-            minimizeBtn.addEventListener('click', () => {
-                window.style.opacity = '0.3';
-                window.style.pointerEvents = 'none';
-            });
-        }
-        
-        if (maximizeBtn) {
-            maximizeBtn.addEventListener('click', () => {
-                if (window.style.width === '100%') {
-                    window.style.width = '';
-                    window.style.height = '';
-                } else {
-                    window.style.width = '100%';
-                    window.style.height = '100%';
-                    window.style.position = 'fixed';
-                    window.style.top = '0';
-                    window.style.left = '0';
-                    window.style.zIndex = '9999';
-                }
-            });
-        }
+
+        titlebar.addEventListener('mousedown', dragStart);
+
+        // Controlli finestra
+        const closeBtn    = win.querySelector('.window-btn.close');
+        const minimizeBtn = win.querySelector('.window-btn.minimize');
+        const maximizeBtn = win.querySelector('.window-btn.maximize');
+
+        if (closeBtn)    closeBtn.addEventListener('click',    () => { win.style.display = 'none'; });
+        if (minimizeBtn) minimizeBtn.addEventListener('click', () => { win.style.opacity = '0.3'; win.style.pointerEvents = 'none'; });
+        if (maximizeBtn) maximizeBtn.addEventListener('click', () => {
+            if (win.style.width === '100%') {
+                win.style.width = ''; win.style.height = ''; win.style.position = ''; win.style.top = ''; win.style.left = ''; win.style.zIndex = '';
+            } else {
+                Object.assign(win.style, { width: '100%', height: '100%', position: 'fixed', top: '0', left: '0', zIndex: '9999' });
+            }
+        });
     });
 }
 
@@ -116,23 +79,20 @@ function initHamburger() {
         btn.classList.toggle('open', isOpen);
     });
 
-    // Chiudi cliccando un link
-    links.addEventListener('click', (e) => {
+    links.addEventListener('click', e => {
         if (e.target.closest('.nav-link')) {
             links.classList.remove('open');
             btn.classList.remove('open');
         }
     });
 
-    // Chiudi cliccando fuori
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', e => {
         if (!e.target.closest('.main-nav')) {
             links.classList.remove('open');
             btn.classList.remove('open');
         }
     });
 
-    // Chiudi su navigazione SPA
     window.addEventListener('spa-navigate', () => {
         links.classList.remove('open');
         btn.classList.remove('open');
@@ -140,4 +100,3 @@ function initHamburger() {
 }
 
 document.addEventListener('DOMContentLoaded', initHamburger);
-

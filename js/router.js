@@ -92,12 +92,33 @@ const Router = {
         if (newMain) {
             // Smooth swap
             this.contentArea.style.opacity = '0';
-            
+
+            // Aggiorna sfondo fuori dal main
+            const newBg = doc.getElementById('page-bg');
+            const currentBg = document.getElementById('page-bg');
+            if (newBg && currentBg) {
+                currentBg.className = newBg.className;
+                currentBg.innerHTML = newBg.innerHTML;
+                const bgVideo = currentBg.querySelector('video');
+                if (bgVideo) {
+                    bgVideo.muted = true;
+                    bgVideo.load();
+                    bgVideo.play().catch(() => {});
+                }
+            }
+
             setTimeout(() => {
                 this.contentArea.innerHTML = newMain.innerHTML;
                 this.contentArea.className = newMain.className;
                 this.contentArea.style.opacity = '1';
-                
+
+                // Force-play videos injected via innerHTML (autoplay non scatta su elementi creati dinamicamente)
+                this.contentArea.querySelectorAll('video').forEach(v => {
+                    v.muted = true;
+                    v.load();
+                    v.play().catch(() => {});
+                });
+
                 // Re-initialize scripts
                 this.initializeScripts(url);
                 this.updateNavState();

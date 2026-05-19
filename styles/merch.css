@@ -212,6 +212,12 @@
     overflow-y: auto;
 }
 
+.cart-empty {
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+}
+
 .cart-item {
     display: flex;
     justify-content: space-between;
