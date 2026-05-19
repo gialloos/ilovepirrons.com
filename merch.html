@@ -18,36 +18,37 @@
                 <a href="download.html" class="nav-link">DOWNLOAD</a>
                 <a href="merch.html" class="nav-link active">MERCH</a>
                 <a href="discografia.html" class="nav-link">DISCOGRAFIA</a>
+                <a href="gioco.html" class="nav-link" data-no-router>SDM</a>
             </div>
         </div>
     </nav>
 
     <main class="merch-container">
-        <header class="merch-header">
-            <h1 class="glitch-text">MERCH</h1>
-            <p class="merch-subtitle">official merchandise</p>
-        </header>
 
-        <div class="coming-soon-container">
-            <h2 class="coming-soon-text glitch-text" style="font-size: 64px; text-align: center; margin: 40px 0;">COMING SOON!</h2>
-            
-            <div class="y2k-loading-box">
-                <p class="blink-text" style="text-align: center; margin-bottom: 20px; color: var(--light-blue); font-family: var(--font-pixel);">LOADING INVENTORY...</p>
-                <div class="loading-bar-border">
-                    <div class="loading-bar-fill"></div>
-                </div>
-            </div>
-            
-            <div class="gif-container" style="text-align: center; margin-top: 50px;">
-                <!-- Segnaposto per gif Y2K -->
-                <p style="font-family: var(--font-bitmap); opacity: 0.7; font-size: 24px;">Please check back later.</p>
-            </div>
+        <!-- CHARACTER.mp4: sfondo fisso a tutta pagina -->
+        <div class="merch-fullbg">
+            <video autoplay loop muted playsinline>
+                <source src="visual%20sito/CHARACTER.mp4" type="video/mp4">
+            </video>
         </div>
+
+        <h2 class="coming-soon-text glitch-text">COMING SOON!</h2>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="footer-logo">ILOVEPIRRONS</span>
+            <span class="footer-sep">|</span>
+            <a href="mailto:ilovepirrons@gmail.com" class="footer-link">ilovepirrons@gmail.com</a>
+            <span class="footer-sep">|</span>
+            <span class="footer-piva">P.IVA 12345678901</span>
+        </div>
+    </footer>
 
     <!-- Global App Shell Scripts -->
     <script src="js/router.js"></script>
     <script src="js/windows.js"></script>
+    <script src="js/polpolpo.js"></script>
     
     <!-- Data Source (CORS-proof) -->
     <script src="js/data_discografia.js"></script>

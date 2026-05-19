@@ -19,21 +19,27 @@
                 <a href="download.html" class="nav-link">DOWNLOAD</a>
                 <a href="merch.html" class="nav-link">MERCH</a>
                 <a href="discografia.html" class="nav-link">DISCOGRAFIA</a>
+                <a href="gioco.html" class="nav-link" data-no-router>SDM</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <main class="home-container">
-        <section class="hero-section">
-            <div class="hero-title">
-                <h1 class="glitch-text">APERTURA</h1>
-            </div>
 
+        <!-- ONDE.mp4: sfondo fisso a tutta pagina -->
+        <div class="home-fullbg">
+            <video autoplay loop muted playsinline>
+                <source src="visual%20sito/ONDE.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <section class="hero-section">
             <!-- Windows XP Style Popups -->
             <div class="windows-container">
                 <!-- Internet Explorer Window -->
                 <div class="xp-window" id="ie-window">
+                    <img src="visual%20sito/CRUXXX.gif" class="ie-cruxxx" alt="" draggable="false">
                     <div class="window-titlebar">
                         <span class="window-title">Internet Explorer</span>
                         <div class="window-controls">
@@ -75,29 +81,6 @@
                     </div>
                 </div>
 
-                <!-- Video Call Window -->
-                <div class="xp-window" id="video-window">
-                    <div class="window-titlebar">
-                        <span class="window-title">ilovepirrons Media</span>
-                        <div class="window-controls">
-                            <button class="window-btn minimize">_</button>
-                            <button class="window-btn maximize">□</button>
-                            <button class="window-btn close">×</button>
-                        </div>
-                    </div>
-                    <div class="window-content video-content">
-                        <div class="video-subtitle">Video Call //user7779</div>
-                        <div class="video-frame">
-                            <img src="assets/common/custom arrow.png" alt="Profile" class="profile-img">
-                            <div class="overlay-text">FOTO PIRRONS</div>
-                        </div>
-                        <div class="video-controls">
-                            <button class="video-btn mic">🎤</button>
-                            <button class="video-btn camera">📹</button>
-                            <button class="video-btn hangup">📞</button>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- Scattered Text Elements -->
@@ -109,56 +92,23 @@
             </div>
         </section>
 
-        <!-- Follow Boxes Section -->
-        <section class="follow-section">
-            <div class="follow-box before">
-                <h2 class="box-title">BEFORE YOU FOLLOW</h2>
-                <p class="box-text">i speak in eng/ar, often smashing my typing, easily annoyed, curse a lot, sb to break mutual, i interact, i like talking in dm, sb people who don't interact</p>
-            </div>
-            <div class="follow-box dont">
-                <h2 class="box-title">DO NOT FOLLOW IF</h2>
-                <p class="box-text">racist, homophobic, islamphobic, you're attention seeker, twice anti, -12, ur hetero, rt bot, no prns, do not stan my favs, blink army exol</p>
-            </div>
-        </section>
-
-        <!-- Quick Links Section -->
-        <section class="quick-links">
-            <div class="link-card">
-                <div class="card-icon">📝</div>
-                <h3>BLOG</h3>
-                <p>Updates & thoughts</p>
-                <a href="blog.html" class="card-link">→ READ MORE</a>
-            </div>
-            <div class="link-card">
-                <div class="card-icon">🎥</div>
-                <h3>LIVE</h3>
-                <p>Streams & dates</p>
-                <a href="live.html" class="card-link">→ CHECK OUT</a>
-            </div>
-            <div class="link-card">
-                <div class="card-icon">⬇️</div>
-                <h3>DOWNLOAD</h3>
-                <p>Free music</p>
-                <a href="download.html" class="card-link">→ GET SONGS</a>
-            </div>
-            <div class="link-card">
-                <div class="card-icon">👕</div>
-                <h3>MERCH</h3>
-                <p>Shop now</p>
-                <a href="merch.html" class="card-link">→ BUY NOW</a>
-            </div>
-            <div class="link-card">
-                <div class="card-icon">💿</div>
-                <h3>DISCOGRAFIA</h3>
-                <p>Annotated lyrics</p>
-                <a href="discografia.html" class="card-link">→ EXPLORE</a>
-            </div>
-        </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="footer-logo">ILOVEPIRRONS</span>
+            <span class="footer-sep">|</span>
+            <a href="mailto:ilovepirrons@gmail.com" class="footer-link">ilovepirrons@gmail.com</a>
+            <span class="footer-sep">|</span>
+            <span class="footer-piva">P.IVA 12345678901</span>
+        </div>
+    </footer>
 
     <!-- Global App Shell Scripts -->
     <script src="js/router.js"></script>
     <script src="js/windows.js"></script>
+    <script src="js/polpolpo.js"></script>
+    <script src="js/cruxxx.js"></script>
     
     <!-- Data Source (CORS-proof) -->
     <script src="js/data_discografia.js"></script>

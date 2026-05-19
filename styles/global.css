@@ -34,9 +34,16 @@ body {
     color: var(--white);
     line-height: 1.6;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* CRT Scanline and Dark Vignette Effect */
+body > main {
+    flex: 1;
+}
+
+/* CRT Scanline — tonato giù per non schiacciare il testo */
 body::before {
     content: '';
     position: fixed;
@@ -44,14 +51,12 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    background-size: 100% 4px, 6px 100%;
+    background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.10) 50%);
+    background-size: 100% 4px;
     z-index: -1;
     pointer-events: none;
-    will-change: transform;
 }
+/* Vignette leggera */
 body::after {
     content: '';
     position: fixed;
@@ -59,7 +64,7 @@ body::after {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: radial-gradient(circle, transparent 50%, #000 120%);
+    background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.45) 130%);
     pointer-events: none;
     z-index: -1;
 }
@@ -71,7 +76,7 @@ body::after {
     padding: 15px 0;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 10002;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -117,19 +122,13 @@ body::after {
 .nav-link:hover {
     background: rgba(0, 255, 255, 0.1);
     color: var(--white);
-    box-shadow: 
-        0 0 10px rgba(0, 255, 255, 0.3),
-        inset 0 0 5px rgba(0, 255, 255, 0.2);
     border-color: var(--light-blue);
-    position: relative;
-    z-index: 10;
 }
 
 .nav-link.active {
     background: var(--hot-pink);
     color: var(--white);
     border-color: var(--hot-pink);
-    box-shadow: 0 0 15px var(--hot-pink);
 }
 
 /* Glitch Text Effect */
@@ -137,42 +136,20 @@ body::after {
     font-family: var(--font-pixel);
     font-size: 48px;
     color: var(--white);
-    text-shadow: 
-        2px 2px 0 var(--hot-pink),
-        -2px -2px 0 var(--light-blue);
+    text-shadow: 2px 2px 0 var(--hot-pink);
     position: relative;
-    transition: all 0.3s;
 }
 
 .glitch-text:hover {
-    animation: glitch 0.3s infinite;
+    animation: glitch 0.4s steps(1) infinite;
 }
 
 @keyframes glitch {
-    0%, 100% {
-        transform: translate(0);
-        text-shadow: 3px 3px 0 var(--black), 0 0 20px var(--hot-pink), 0 0 40px var(--hot-pink);
-    }
-    20% {
-        transform: translate(-3px, 3px);
-        text-shadow: -3px -3px 0 var(--light-blue), 0 0 20px var(--light-blue);
-        color: var(--white);
-    }
-    40% {
-        transform: translate(-3px, -3px);
-        text-shadow: 3px -3px 0 var(--green), 0 0 20px var(--green);
-        color: var(--hot-pink);
-    }
-    60% {
-        transform: translate(3px, 3px);
-        text-shadow: -3px 3px 0 var(--yellow), 0 0 20px var(--yellow);
-        color: var(--light-blue);
-    }
-    80% {
-        transform: translate(3px, -3px);
-        text-shadow: 3px 3px 0 var(--hot-pink), 0 0 20px var(--purple);
-        color: var(--white);
-    }
+    0%   { transform: translate(0);          text-shadow: 2px 2px 0 var(--hot-pink); }
+    25%  { transform: translate(-2px, 1px);  text-shadow: 2px 2px 0 var(--light-blue); color: var(--hot-pink); }
+    50%  { transform: translate(2px, -1px);  text-shadow: -2px 2px 0 var(--green); }
+    75%  { transform: translate(-1px, 2px);  text-shadow: 2px -2px 0 var(--purple); color: var(--light-blue); }
+    100% { transform: translate(0);          text-shadow: 2px 2px 0 var(--hot-pink); color: var(--white); }
 }
 
 /* Windows XP Style */
@@ -287,8 +264,8 @@ body::after {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: #000;
     z-index: 10000;
     display: flex;
@@ -296,58 +273,40 @@ body::after {
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
 }
 
 .router-loading-overlay.active {
     opacity: 1;
     pointer-events: all;
-    animation: crt-power-on 0.4s forwards;
 }
 
 .router-loading-overlay.closing {
-    animation: crt-power-off 0.4s forwards;
-}
-
-@keyframes crt-power-on {
-    0% { transform: scaleY(0.005) scaleX(0); background: #fff; }
-    50% { transform: scaleY(0.005) scaleX(1); background: #fff; }
-    100% { transform: scaleY(1) scaleX(1); background: #000; }
-}
-
-@keyframes crt-power-off {
-    0% { transform: scaleY(1) scaleX(1); background: #000; }
-    50% { transform: scaleY(0.005) scaleX(1); background: #fff; }
-    100% { transform: scaleY(0.005) scaleX(0); background: #fff; }
+    opacity: 0;
 }
 
 .loading-content {
-    text-align: center;
-    font-family: var(--font-pixel);
-    color: var(--light-blue);
-    text-shadow: 0 0 10px var(--light-blue);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.loading-bar-mini {
-    width: 200px;
-    height: 10px;
-    border: 1px solid var(--light-blue);
-    margin-top: 20px;
-    padding: 2px;
-}
-
-.loading-bar-fill-mini {
-    height: 100%;
-    background: var(--light-blue);
-    width: 0%;
-    animation: loading-fill 0.4s linear forwards;
-}
-
-@keyframes loading-fill {
-    to { width: 100%; }
+.loading-explosion-gif {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
 }
 
 main {
+    position: relative;
+    z-index: 10;            /* sopra polpo e farfalle (z-index 2) */
     transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -357,29 +316,97 @@ main.loading {
     opacity: 0;
 }
 
+/* Hamburger Button */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: transparent;
+    border: 1px solid var(--hot-pink);
+    padding: 8px 10px;
+    cursor: pointer;
+    box-shadow: inset 0 0 8px rgba(255, 20, 147, 0.15);
+    transition: all 0.2s;
+}
+
+.nav-hamburger:hover {
+    background: rgba(255, 20, 147, 0.15);
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.4);
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--hot-pink);
+    transition: all 0.25s ease;
+    transform-origin: center;
+}
+
+.nav-hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .nav-container {
-        flex-direction: column;
-        gap: 15px;
-        padding: 0 10px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        flex-wrap: wrap;
     }
-    
+
+    .nav-logo {
+        font-size: 14px;
+    }
+
+    .nav-hamburger {
+        display: flex;
+    }
+
     .nav-links {
-        justify-content: center;
-        gap: 8px;
+        display: none;
+        flex-direction: column;
         width: 100%;
+        gap: 0;
+        border-top: 1px solid rgba(255, 20, 147, 0.3);
+        margin-top: 10px;
+    }
+
+    .nav-links.open {
+        display: flex;
     }
 
     .nav-link {
         font-size: 12px;
-        padding: 6px 10px;
-        flex: 1 1 auto;
-        text-align: center;
+        padding: 12px 15px;
+        border: none;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.7);
+        text-align: left;
+        letter-spacing: 1px;
     }
-    
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    .nav-link.active {
+        background: rgba(255, 20, 147, 0.2);
+        border-left: 3px solid var(--hot-pink);
+    }
+
     .glitch-text {
-        font-size: clamp(24px, 8vw, 48px);
+        font-size: clamp(22px, 7vw, 48px);
     }
 
     .xp-window {
@@ -392,14 +419,135 @@ main.loading {
 }
 
 @media (max-width: 480px) {
-    .nav-links {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5px;
+    .nav-logo {
+        font-size: 12px;
     }
-    .nav-link {
-        font-size: 10px;
-        padding: 5px;
+}
+
+/* ============================================
+   SITE FOOTER
+   ============================================ */
+
+.site-footer {
+    background: var(--black);
+    border-top: 2px solid var(--hot-pink);
+    padding: 18px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-family: var(--font-bitmap);
+    font-size: 16px;
+}
+
+.footer-logo {
+    font-family: var(--font-pixel);
+    font-size: 10px;
+    color: var(--hot-pink);
+    text-shadow: 1px 1px 0 rgba(255,20,147,0.4);
+    letter-spacing: 1px;
+}
+
+.footer-sep {
+    color: rgba(255, 20, 147, 0.35);
+}
+
+.footer-link {
+    color: var(--light-blue);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.footer-link:hover {
+    color: var(--hot-pink);
+}
+
+.footer-piva {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .footer-inner {
+        gap: 10px;
+        font-size: 14px;
+    }
+    .footer-logo {
+        font-size: 8px;
+    }
+}
+
+/* ============================================
+   POLPOLPO WANDERER + DECORAZIONI VISIVE
+   ============================================ */
+
+#polpolpo-wanderer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 500;
+    pointer-events: none;
+    user-select: none;
+    will-change: transform;
+    opacity: 0.88;
+}
+
+#polpolpo-wanderer img {
+    width: 340px;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 8px rgba(255, 20, 147, 0.3));
+}
+
+/* ---- Grafiche di pagina: scrollano con il contenuto ---- */
+.page-visual-bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(72%, 680px);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;          /* sotto i contenuti che vengono dopo nel DOM */
+}
+
+.page-visual-bg img,
+.page-visual-bg video {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 0.14;
+}
+
+.page-visual-bg video {
+    opacity: 0.18;
+}
+
+/* Responsive polpolpo */
+@media (max-width: 768px) {
+    #polpolpo-wanderer img { width: 210px; }
+    #polpolpo-wanderer { opacity: 0.75; }
+
+    .page-visual-bg {
+        width: min(90%, 420px);
+    }
+}
+
+@media (max-width: 480px) {
+    #polpolpo-wanderer img { width: 150px; }
+    #polpolpo-wanderer { opacity: 0.65; }
+
+    .page-visual-bg {
+        width: 95%;
     }
 }
 

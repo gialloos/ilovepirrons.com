@@ -18,14 +18,22 @@
                 <a href="download.html" class="nav-link">DOWNLOAD</a>
                 <a href="merch.html" class="nav-link">MERCH</a>
                 <a href="discografia.html" class="nav-link active">DISCOGRAFIA</a>
+                <a href="gioco.html" class="nav-link" data-no-router>SDM</a>
             </div>
         </div>
     </nav>
 
     <main class="discografia-container">
+
+        <!-- ANIME.mp4: sfondo fisso a tutta pagina -->
+        <div class="discografia-fullbg">
+            <video autoplay loop muted playsinline>
+                <source src="visual%20sito/ANIME.mp4" type="video/mp4">
+            </video>
+        </div>
+
         <header class="discografia-header">
             <h1 class="glitch-text">DISCOGRAFIA</h1>
-            <p class="discografia-subtitle">annotated lyrics & meanings</p>
         </header>
 
         <!-- Singles List -->
@@ -81,9 +89,20 @@
         </div>
     </div>
 
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="footer-logo">ILOVEPIRRONS</span>
+            <span class="footer-sep">|</span>
+            <a href="mailto:ilovepirrons@gmail.com" class="footer-link">ilovepirrons@gmail.com</a>
+            <span class="footer-sep">|</span>
+            <span class="footer-piva">P.IVA 12345678901</span>
+        </div>
+    </footer>
+
     <!-- Global App Shell Scripts -->
     <script src="js/router.js"></script>
     <script src="js/windows.js"></script>
+    <script src="js/polpolpo.js"></script>
     
     <!-- Data Source (CORS-proof) -->
     <script src="js/data_discografia.js"></script>

@@ -1,0 +1,77 @@
+{
+  "gestorepub": {
+    "frames": 39,
+    "duration": 40,
+    "size": 128
+  },
+  "majorback": {
+    "frames": 36,
+    "duration": 40,
+    "size": 128
+  },
+  "majordestra": {
+    "frames": 43,
+    "duration": 40,
+    "size": 128
+  },
+  "majorfront": {
+    "frames": 46,
+    "duration": 40,
+    "size": 128
+  },
+  "majorsinistra": {
+    "frames": 43,
+    "duration": 40,
+    "size": 128
+  },
+  "npconcerto1": {
+    "frames": 40,
+    "duration": 40,
+    "size": 128
+  },
+  "npconcerto2": {
+    "frames": 72,
+    "duration": 40,
+    "size": 128
+  },
+  "npconcerto3": {
+    "frames": 56,
+    "duration": 40,
+    "size": 128
+  },
+  "npconcertocoppia": {
+    "frames": 56,
+    "duration": 40,
+    "size": 128
+  },
+  "npconcertogruppo": {
+    "frames": 50,
+    "duration": 40,
+    "size": 128
+  },
+  "pirronsback": {
+    "frames": 18,
+    "duration": 40,
+    "size": 128
+  },
+  "pirronsdestra": {
+    "frames": 45,
+    "duration": 40,
+    "size": 128
+  },
+  "pirronsfront": {
+    "frames": 39,
+    "duration": 40,
+    "size": 128
+  },
+  "pirronssinistra": {
+    "frames": 45,
+    "duration": 40,
+    "size": 128
+  },
+  "soldato": {
+    "frames": 50,
+    "duration": 40,
+    "size": 128
+  }
+}

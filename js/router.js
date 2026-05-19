@@ -25,6 +25,9 @@ const Router = {
             this.loadPage(window.location.href, false);
         });
 
+        // Inizializza gli script della pagina corrente (caricamento diretto)
+        this.initializeScripts(window.location.href);
+        this.updateNavState();
         console.log('Router initialized 1000% smooth.');
     },
 
@@ -33,11 +36,10 @@ const Router = {
         overlay.className = 'router-loading-overlay';
         overlay.innerHTML = `
             <div class="loading-content">
-                <div class="glitch-text" data-text="SYSTEM_BOOT">SYSTEM_BOOT</div>
-                <div class="loading-bar-mini">
-                    <div class="loading-bar-fill-mini"></div>
-                </div>
-                <p style="font-size: 10px; margin-top: 10px; opacity: 0.7;">LINKING TO ILOVEPIRRONS_NET...</p>
+                <img src="visual%20sito/EXPLOSIONE.gif"
+                     class="loading-explosion-gif"
+                     alt="loading"
+                     draggable="false">
             </div>
         `;
         document.body.appendChild(overlay);
@@ -46,15 +48,19 @@ const Router = {
 
     async navigate(url) {
         if (url === window.location.href) return;
-        
+
+        // Ricarica il GIF per resettare l'animazione ad ogni navigazione
+        const gif = this.loadingOverlay.querySelector('.loading-explosion-gif');
+        if (gif) { const s = gif.src; gif.src = ''; gif.src = s; }
+
         // Start transition
         this.loadingOverlay.classList.remove('closing');
         this.loadingOverlay.classList.add('active');
         this.contentArea.classList.add('loading');
-        
+
         try {
-            // Artificial delay for animation feel
-            await new Promise(resolve => setTimeout(resolve, 600));
+            // Durata estesa per godersi il GIF
+            await new Promise(resolve => setTimeout(resolve, 1400));
             await this.loadPage(url, true);
         } catch (error) {
             console.error('Navigation error:', error);
@@ -63,11 +69,11 @@ const Router = {
             // End transition
             this.loadingOverlay.classList.add('closing');
             this.contentArea.classList.remove('loading');
-            
+
             setTimeout(() => {
                 this.loadingOverlay.classList.remove('active');
                 this.loadingOverlay.classList.remove('closing');
-            }, 500);
+            }, 400);
         }
     },
 
@@ -119,6 +125,12 @@ const Router = {
     },
 
     initializeScripts(url) {
+        // Rimuovi il trailer SDM se si naviga via dalla pagina gioco
+        if (!url.includes('gioco.html')) {
+            var t = document.getElementById('sdm-trailer');
+            if (t) t.remove();
+        }
+
         // Global scripts re-init
         if (typeof window.initWindows === 'function') window.initWindows();
         
@@ -128,6 +140,7 @@ const Router = {
         if (url.includes('download.html') && typeof window.initDownload === 'function') window.initDownload();
         if (url.includes('merch.html') && typeof window.initMerch === 'function') window.initMerch();
         if (url.includes('discografia.html') && typeof window.initDiscografia === 'function') window.initDiscografia();
+        if (url.includes('gioco.html') && typeof window.initGioco === 'function') window.initGioco();
     }
 };
 

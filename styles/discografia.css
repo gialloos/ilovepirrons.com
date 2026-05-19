@@ -2,10 +2,30 @@
    DISCOGRAFIA PAGE STYLES (GENIUS STYLE)
    ============================================ */
 
+/* ANIME.mp4: sfondo fisso a tutta pagina */
+.discografia-fullbg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.discografia-fullbg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.30;
+}
+
 .discografia-container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 40px 20px;
+    overflow: hidden;
 }
 
 .discografia-header {
@@ -19,6 +39,43 @@
     margin-top: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+
+/* ── Hero ANIME.mp4 ── */
+.discografia-hero {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto 50px;
+}
+
+.discografia-hero-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 2px solid var(--hot-pink);
+    box-shadow:
+        0 0 20px rgba(255, 20, 147, 0.4),
+        inset 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+}
+
+.discografia-hero-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* scanline overlay */
+.discografia-hero-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg, transparent, transparent 2px,
+        rgba(0,0,0,0.10) 2px, rgba(0,0,0,0.10) 4px
+    );
+    pointer-events: none;
 }
 
 .section-title {
@@ -38,22 +95,18 @@
 }
 
 .album-card {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.78);
     border: 1px solid var(--hot-pink);
     padding: 20px;
     text-align: center;
-    transition: all 0.3s;
-    box-shadow: 0 0 15px rgba(255, 20, 147, 0.15);
+    transition: border-color 0.2s, transform 0.2s;
     cursor: pointer;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
 }
 
 .album-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-6px);
     border-color: var(--light-blue);
-    box-shadow: 
-        0 0 30px var(--light-blue),
-        4px 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .album-cover {
@@ -121,11 +174,10 @@
 
 /* Lyrics Panel */
 .lyrics-panel {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.82);
     border: 1px solid var(--hot-pink);
     padding: 30px;
-    box-shadow: 0 0 20px rgba(255, 20, 147, 0.2);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
 }
 
 .song-header {
@@ -202,11 +254,10 @@
 }
 
 .info-card {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.78);
     border: 1px solid var(--hot-pink);
     padding: 20px;
-    box-shadow: 0 0 15px rgba(255, 20, 147, 0.15);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
 }
 
 .info-card h3 {
@@ -322,25 +373,78 @@
 }
 
 /* Responsive */
+@media (max-width: 768px) {
+    .discografia-header {
+        margin-bottom: 20px;
+    }
+
+    .discografia-hero {
+        margin-bottom: 30px;
+    }
+
+    .discografia-subtitle {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+}
+
 @media (max-width: 968px) {
     .song-detail-content {
         grid-template-columns: 1fr;
     }
-    
+
     .info-sidebar {
-        order: -1; /* Mette info e cover SOPRA al testo della canzone */
+        order: -1;
     }
 
     .song-title {
-        font-size: clamp(20px, 6vw, 28px);
+        font-size: clamp(18px, 5vw, 28px);
     }
 
     .lyrics-container {
-        font-size: 16px; /* Riduzione testo canzone per maggiore leggibilità */
+        font-size: 16px;
     }
 
     .lyrics-panel {
-        padding: 15px; /* Meno padding laterale su schermi stretti */
+        padding: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .discografia-container {
+        padding: 20px 10px;
+    }
+
+    .albums-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+    }
+
+    .album-title {
+        font-size: 13px;
+    }
+
+    .lyrics-container {
+        font-size: 15px;
+        line-height: 1.9;
+    }
+
+    .lyrics-line {
+        padding: 6px;
+    }
+
+    .annotation-content {
+        padding: 20px 15px;
+        width: 95%;
+    }
+
+    .annotation-content h3 {
+        font-size: 14px;
+    }
+
+    .back-btn {
+        font-size: 12px;
+        padding: 8px 14px;
     }
 }
 

@@ -18,14 +18,22 @@
                 <a href="download.html" class="nav-link active">DOWNLOAD</a>
                 <a href="merch.html" class="nav-link">MERCH</a>
                 <a href="discografia.html" class="nav-link">DISCOGRAFIA</a>
+                <a href="gioco.html" class="nav-link" data-no-router>SDM</a>
             </div>
         </div>
     </nav>
 
     <main class="download-container">
+
+        <!-- DJLAMA.mp4: sfondo fisso a tutta pagina, sotto tutto il contenuto -->
+        <div class="dl-fullbg">
+            <video autoplay loop muted playsinline>
+                <source src="visual%20sito/DJLAMA.mp4" type="video/mp4">
+            </video>
+        </div>
+
         <header class="download-header">
-            <h1 class="glitch-text">PARTE DOWNLOAD CANZONI</h1>
-            <p class="download-subtitle">free music downloads</p>
+            <h1 class="glitch-text">DOWNLOAD</h1>
         </header>
 
         <!-- Old-School Media Player -->
@@ -82,10 +90,21 @@
         </section>
     </main>
 
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="footer-logo">ILOVEPIRRONS</span>
+            <span class="footer-sep">|</span>
+            <a href="mailto:ilovepirrons@gmail.com" class="footer-link">ilovepirrons@gmail.com</a>
+            <span class="footer-sep">|</span>
+            <span class="footer-piva">P.IVA 12345678901</span>
+        </div>
+    </footer>
+
     <script src="data/songs.json"></script>
     <!-- Global App Shell Scripts -->
     <script src="js/router.js"></script>
     <script src="js/windows.js"></script>
+    <script src="js/polpolpo.js"></script>
     
     <!-- Data Source (CORS-proof) -->
     <script src="js/data_discografia.js"></script>

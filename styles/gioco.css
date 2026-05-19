@@ -1,0 +1,441 @@
+/* ============================================
+   GIOCO - SCAPPA DALLA MAJOR
+   ============================================ */
+
+/* ── SDM Trailer Screen ── */
+#sdm-trailer {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.45s ease;
+}
+
+#sdm-trailer.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#trailer-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+#trailer-skip {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.55);
+    font-family: var(--font-pixel);
+    font-size: 9px;
+    padding: 6px 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: border-color 0.2s, color 0.2s;
+    z-index: 1;
+}
+
+#trailer-skip:hover {
+    border-color: var(--hot-pink);
+    color: var(--white);
+}
+
+#trailer-cta {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.72);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+
+#trailer-cta.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#trailer-start-btn {
+    cursor: pointer;
+    max-width: min(420px, 75vw);
+    width: 100%;
+    height: auto;
+    animation: pulse-start 1.6s ease-in-out infinite;
+    transition: transform 0.15s;
+}
+
+#trailer-start-btn:hover {
+    transform: scale(1.06);
+}
+
+@keyframes pulse-start {
+    0%, 100% { filter: drop-shadow(0 0 18px rgba(255, 20, 147, 0.8)); }
+    50%       { filter: drop-shadow(0 0 32px rgba(255, 20, 147, 1)) drop-shadow(0 0 8px rgba(0, 255, 255, 0.5)); }
+}
+
+@media (max-width: 480px) {
+    #trailer-skip {
+        top: 60px;
+        right: 12px;
+        font-size: 8px;
+        padding: 5px 10px;
+    }
+
+    #trailer-start-btn {
+        max-width: 85vw;
+    }
+}
+
+.gioco-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.gioco-header {
+    text-align: center;
+    width: 100%;
+}
+
+.gioco-title {
+    font-family: var(--font-pixel);
+    font-size: clamp(18px, 4vw, 32px);
+    color: var(--hot-pink);
+    text-shadow:
+        3px 3px 0 var(--black),
+        0 0 20px var(--hot-pink),
+        0 0 40px var(--hot-pink);
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.gioco-subtitle {
+    font-family: var(--font-bitmap);
+    font-size: 22px;
+    color: var(--light-blue);
+    text-shadow: 0 0 8px var(--light-blue);
+    letter-spacing: 3px;
+}
+
+/* HUD */
+.game-hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.8);
+    border: 1px solid var(--hot-pink);
+    box-shadow: 0 0 15px rgba(255,20,147,0.3);
+    font-family: var(--font-pixel);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hud-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.hud-label {
+    font-size: 8px;
+    color: var(--light-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hud-value {
+    font-size: 16px;
+    color: var(--white);
+    text-shadow: 0 0 8px var(--hot-pink);
+}
+
+.hud-lives {
+    display: flex;
+    gap: 5px;
+    font-size: 18px;
+}
+
+.life-icon {
+    filter: drop-shadow(0 0 4px var(--hot-pink));
+    transition: transform 0.2s;
+}
+
+.life-icon.lost {
+    filter: grayscale(1) opacity(0.3);
+}
+
+/* Canvas Wrapper */
+.canvas-wrapper {
+    position: relative;
+    /* dimensione nativa del canvas 768×512 */
+    width: 768px;
+    max-width: calc(100vw - 20px);
+    aspect-ratio: 768 / 512;
+    border: 2px solid var(--hot-pink);
+    box-shadow:
+        0 0 30px rgba(255,20,147,0.5),
+        0 0 60px rgba(255,20,147,0.2),
+        inset 0 0 20px rgba(0,0,0,0.8);
+    background: #0a0a0a;
+    cursor: none;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* Scanline overlay on canvas */
+.canvas-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.08) 2px,
+        rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Overlay Screens (start, gameover, pause, win) */
+.game-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 20;
+    padding: 30px;
+    text-align: center;
+}
+
+.game-overlay.hidden {
+    display: none;
+}
+
+.overlay-title {
+    font-family: var(--font-pixel);
+    font-size: clamp(16px, 4vw, 28px);
+    color: var(--hot-pink);
+    text-shadow:
+        2px 2px 0 var(--black),
+        0 0 20px var(--hot-pink);
+    line-height: 1.4;
+}
+
+.overlay-title.cyan {
+    color: var(--light-blue);
+    text-shadow: 2px 2px 0 var(--black), 0 0 20px var(--light-blue);
+}
+
+.overlay-title.green {
+    color: var(--green);
+    text-shadow: 2px 2px 0 var(--black), 0 0 20px var(--green);
+}
+
+.overlay-score {
+    font-family: var(--font-bitmap);
+    font-size: 28px;
+    color: var(--yellow);
+    text-shadow: 0 0 10px var(--yellow);
+}
+
+.overlay-instructions {
+    font-family: var(--font-bitmap);
+    font-size: 18px;
+    color: var(--white);
+    line-height: 1.8;
+    opacity: 0.85;
+    max-width: 500px;
+}
+
+.overlay-instructions span {
+    color: var(--light-blue);
+}
+
+.overlay-btn {
+    font-family: var(--font-pixel);
+    font-size: 12px;
+    padding: 12px 28px;
+    background: transparent;
+    border: 2px solid var(--hot-pink);
+    color: var(--white);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 0 15px rgba(255,20,147,0.4), inset 0 0 10px rgba(255,20,147,0.1);
+    transition: all 0.2s;
+    animation: pulse-btn 1.5s ease-in-out infinite;
+}
+
+.overlay-btn:hover {
+    background: rgba(255,20,147,0.2);
+    box-shadow: 0 0 25px rgba(255,20,147,0.7), inset 0 0 20px rgba(255,20,147,0.2);
+    transform: scale(1.05);
+}
+
+@keyframes pulse-btn {
+    0%, 100% { box-shadow: 0 0 15px rgba(255,20,147,0.4), inset 0 0 10px rgba(255,20,147,0.1); }
+    50% { box-shadow: 0 0 25px rgba(255,20,147,0.8), inset 0 0 15px rgba(255,20,147,0.3); }
+}
+
+/* Controls legend */
+.controls-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.control-key {
+    display: inline-block;
+    background: rgba(0,255,255,0.1);
+    border: 1px solid var(--teal);
+    padding: 3px 8px;
+    font-family: var(--font-pixel);
+    font-size: 9px;
+    color: var(--light-blue);
+}
+
+.key-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-bitmap);
+    font-size: 14px;
+    color: var(--white);
+}
+
+/* Sprite preload – opacity:0.001 (invisibile ma "rendered"):
+   il browser anima i GIF frame per frame e ctx.drawImage cattura ogni frame.
+   NON usare display:none / visibility:hidden / opacity:0 / z-index:-1
+   perché queste proprietà fermano l'animazione GIF in molti browser. */
+.sprite-preload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0.001;
+    pointer-events: none;
+    z-index: 1;
+}
+.sprite-preload img {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+}
+
+/* Level indicator */
+.level-flash {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-pixel);
+    font-size: 24px;
+    color: var(--green);
+    text-shadow: 0 0 20px var(--green);
+    background: rgba(0,0,0,0.6);
+    z-index: 15;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.level-flash.show {
+    opacity: 1;
+}
+
+/* Mobile controls */
+.mobile-controls {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.mobile-row {
+    display: flex;
+    gap: 5px;
+}
+
+.mobile-btn {
+    width: 60px;
+    height: 60px;
+    background: rgba(0,0,0,0.8);
+    border: 2px solid var(--hot-pink);
+    color: var(--white);
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255,20,147,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.mobile-btn:active {
+    background: rgba(255,20,147,0.2);
+    box-shadow: 0 0 20px rgba(255,20,147,0.6);
+}
+
+@media (max-width: 850px) {
+    .gioco-container {
+        padding: 15px 10px;
+    }
+
+    .mobile-controls {
+        display: flex;
+    }
+
+    .game-hud {
+        font-size: 10px;
+    }
+
+    .hud-value {
+        font-size: 13px;
+    }
+}

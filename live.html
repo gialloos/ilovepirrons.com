@@ -18,32 +18,36 @@
                 <a href="download.html" class="nav-link">DOWNLOAD</a>
                 <a href="merch.html" class="nav-link">MERCH</a>
                 <a href="discografia.html" class="nav-link">DISCOGRAFIA</a>
+                <a href="gioco.html" class="nav-link" data-no-router>SDM</a>
             </div>
         </div>
     </nav>
 
     <main class="live-container">
+
+        <!-- DJPIRRONS.mp4: sfondo fisso a tutta pagina -->
+        <div class="live-fullbg">
+            <video autoplay loop muted playsinline>
+                <source src="visual%20sito/DJPIRRONS.mp4" type="video/mp4">
+            </video>
+        </div>
+
         <header class="live-header">
-            <h1 class="glitch-text">PARTE LIVE FOTO E DATE</h1>
-            <p class="live-subtitle">streams, events & dates</p>
+            <h1 class="glitch-text">LIVE</h1>
         </header>
 
-        <!-- Live Stream Section -->
-        <section class="live-stream-section">
-            <h2 class="section-title">🔴 LIVE NOW</h2>
-            <div class="stream-container">
-                <div class="stream-placeholder">
-                    <div class="stream-overlay">
-                        <span class="stream-text">LIVE STREAM</span>
-                        <span class="stream-status">OFFLINE</span>
-                    </div>
-                </div>
+        <!-- Booking -->
+        <section class="events-section booking-section">
+            <h2 class="section-title">// BOOKING</h2>
+            <div class="booking-box">
+                <p class="booking-text">Per richieste di booking e collaborazioni:</p>
+                <a class="booking-email" href="mailto:ilovepirrons@gmail.com">ilovepirrons@gmail.com</a>
             </div>
         </section>
 
-        <!-- Upcoming Events -->
+        <!-- Dates -->
         <section class="events-section">
-            <h2 class="section-title">📅 UPCOMING EVENTS</h2>
+            <h2 class="section-title">// DATES</h2>
             <div class="events-grid" id="events-grid">
                 <!-- Events will be loaded here via JavaScript -->
             </div>
@@ -51,17 +55,28 @@
 
         <!-- Past Events -->
         <section class="events-section">
-            <h2 class="section-title">📸 PAST EVENTS</h2>
+            <h2 class="section-title">// PAST</h2>
             <div class="events-grid" id="past-events-grid">
                 <!-- Past events will be loaded here via JavaScript -->
             </div>
         </section>
     </main>
 
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="footer-logo">ILOVEPIRRONS</span>
+            <span class="footer-sep">|</span>
+            <a href="mailto:ilovepirrons@gmail.com" class="footer-link">ilovepirrons@gmail.com</a>
+            <span class="footer-sep">|</span>
+            <span class="footer-piva">P.IVA 12345678901</span>
+        </div>
+    </footer>
+
     <script src="data/events.json"></script>
     <!-- Global App Shell Scripts -->
     <script src="js/router.js"></script>
     <script src="js/windows.js"></script>
+    <script src="js/polpolpo.js"></script>
     
     <!-- Data Source (CORS-proof) -->
     <script src="js/data_discografia.js"></script>

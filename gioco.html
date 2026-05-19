@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILOVEPIRRONS - Scappa dalla Major</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/gioco.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">ILOVEPIRRONS</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="blog.html" class="nav-link">BLOG</a>
+                <a href="live.html" class="nav-link">LIVE</a>
+                <a href="download.html" class="nav-link">DOWNLOAD</a>
+                <a href="merch.html" class="nav-link">MERCH</a>
+                <a href="discografia.html" class="nav-link">DISCOGRAFIA</a>
+                <a href="gioco.html" class="nav-link active">SDM</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── SDM Trailer ── tutto inline, nessuna dipendenza da gioco.css -->
+    <div id="sdm-trailer" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:10001;background:#000;display:flex;align-items:center;justify-content:center;">
+        <video id="trailer-video" playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;">
+            <source src="visual sito/semideef.mp4" type="video/mp4">
+        </video>
+        <button id="trailer-skip" style="position:absolute;top:20px;right:20px;z-index:3;background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.7);font-size:12px;padding:7px 16px;cursor:pointer;letter-spacing:1px;">SALTA ▶</button>
+        <div id="trailer-cta" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);z-index:2;opacity:0;pointer-events:none;transition:opacity 0.5s;">
+            <img src="visual sito/start_button.gif" id="trailer-start-btn" alt="START" style="max-width:420px;width:75vw;cursor:pointer;display:block;">
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        var trailer  = document.getElementById('sdm-trailer');
+        var video    = document.getElementById('trailer-video');
+        var skipBtn  = document.getElementById('trailer-skip');
+        var cta      = document.getElementById('trailer-cta');
+        var startBtn = document.getElementById('trailer-start-btn');
+        var shown    = false;
+
+        // Posiziona il trailer sotto la nav
+        var nav = document.querySelector('.main-nav');
+        if (nav) {
+            var navH = nav.offsetHeight;
+            trailer.style.top    = navH + 'px';
+            trailer.style.height = 'calc(100% - ' + navH + 'px)';
+        }
+
+        function showCta() {
+            if (shown) return;
+            shown = true;
+            video.pause();
+            skipBtn.style.display = 'none';
+            cta.style.opacity = '1';
+            cta.style.pointerEvents = 'auto';
+        }
+
+        function startGame() {
+            trailer.style.transition = 'opacity 0.4s';
+            trailer.style.opacity    = '0';
+            trailer.style.pointerEvents = 'none';
+            setTimeout(function () {
+                trailer.remove();
+                var btn = document.getElementById('btn-start');
+                if (btn) btn.click();
+            }, 400);
+        }
+
+        video.addEventListener('ended',     showCta);
+        video.addEventListener('timeupdate', function () {
+            if (!shown && video.duration > 0 && video.currentTime >= video.duration - 0.5)
+                showCta();
+        });
+        skipBtn.addEventListener('click',  showCta);
+        startBtn.addEventListener('click', startGame);
+
+        // Play con audio; se bloccato, muted
+        var p = video.play();
+        if (p) p.catch(function () { video.muted = true; video.play().catch(showCta); });
+    })();
+    </script>
+
+    <main class="gioco-container">
+
+        <!-- Header -->
+        <header class="gioco-header">
+            <h1 class="gioco-title">SCAPPA DALLA MAJOR</h1>
+            <p class="gioco-subtitle">// RACCOGLI I VINILI · SFUGGI ALLA MAJOR //</p>
+        </header>
+
+        <!-- HUD -->
+        <div class="game-hud">
+            <div class="hud-item">
+                <span class="hud-label">SCORE</span>
+                <span class="hud-value" id="hud-score">000000</span>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">LIVELLO</span>
+                <span class="hud-value" id="hud-level">1</span>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">VINILI</span>
+                <span class="hud-value" id="hud-vinyls">8</span>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">VITE</span>
+                <div class="hud-lives" id="hud-lives">
+                    <span class="life-icon">♥</span>
+                    <span class="life-icon">♥</span>
+                    <span class="life-icon">♥</span>
+                </div>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">PAUSA</span>
+                <span class="hud-value" style="font-size:11px;cursor:pointer;color:var(--light-blue)" onclick="if(window.giocoResume){window.giocoResume()}else{document.dispatchEvent(new KeyboardEvent('keydown',{key:'p'}))}">[ P ]</span>
+            </div>
+        </div>
+
+        <!-- Canvas Area -->
+        <div class="canvas-wrapper" id="canvas-wrapper">
+            <canvas id="gameCanvas" tabindex="0"></canvas>
+            <div id="level-flash" class="level-flash"></div>
+
+            <!-- START OVERLAY -->
+            <div id="overlay-start" class="game-overlay">
+                <h2 class="overlay-title">SCAPPA DALLA<br>MAJOR</h2>
+                <p class="overlay-instructions">
+                    Sei i <span>Pirrons</span>.<br>
+                    La <span>Major</span> ti vuole prendere.<br>
+                    Raccogli tutti i <span>vinili</span> e scappa!
+                </p>
+                <div class="controls-legend">
+                    <div class="key-group">
+                        <div style="display:flex;gap:4px;margin-bottom:2px">
+                            <span class="control-key">W</span>
+                        </div>
+                        <div style="display:flex;gap:4px">
+                            <span class="control-key">A</span>
+                            <span class="control-key">S</span>
+                            <span class="control-key">D</span>
+                        </div>
+                        <span style="font-family:var(--font-bitmap);font-size:13px;color:var(--white);opacity:0.7">oppure frecce</span>
+                    </div>
+                    <div class="key-group">
+                        <span class="control-key">P / ESC</span>
+                        <span style="font-family:var(--font-bitmap);font-size:13px;color:var(--white);opacity:0.7">pausa</span>
+                    </div>
+                </div>
+                <button class="overlay-btn" id="btn-start">► START GAME</button>
+            </div>
+
+            <!-- GAME OVER OVERLAY -->
+            <div id="overlay-gameover" class="game-overlay hidden">
+                <h2 class="overlay-title">GAME OVER</h2>
+                <p class="overlay-instructions">La Major ti ha preso.<br>Non ti lasceranno mai andare...</p>
+                <p class="overlay-score" id="go-score">PUNTEGGIO: 0</p>
+                <button class="overlay-btn" id="btn-restart">↺ RIPROVA</button>
+            </div>
+
+            <!-- PAUSED OVERLAY -->
+            <div id="overlay-paused" class="game-overlay hidden">
+                <h2 class="overlay-title cyan">// PAUSA //</h2>
+                <p class="overlay-instructions">Il mondo aspetta il tuo ritorno...</p>
+                <button class="overlay-btn" id="btn-resume">► CONTINUA</button>
+            </div>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div class="mobile-controls">
+            <div class="mobile-row">
+                <button class="mobile-btn" id="mbtn-up">▲</button>
+            </div>
+            <div class="mobile-row">
+                <button class="mobile-btn" id="mbtn-left">◀</button>
+                <button class="mobile-btn" id="mbtn-down">▼</button>
+                <button class="mobile-btn" id="mbtn-right">▶</button>
+            </div>
+        </div>
+
+        <!--
+            Sprite preload – gli <img> DEVONO stare nel DOM (non display:none)
+            così il browser anima i GIF e ctx.drawImage cattura ogni frame.
+        -->
+        <div class="sprite-preload" aria-hidden="true">
+            <img id="spr-pirrons-front"  src="grafiche-scappo-dalla-major/PIRRONSFRONT.gif"    alt="">
+            <img id="spr-pirrons-back"   src="grafiche-scappo-dalla-major/PIRRONSBACK.gif"     alt="">
+            <img id="spr-pirrons-left"   src="grafiche-scappo-dalla-major/PIRRONSSINISTRA.gif" alt="">
+            <img id="spr-pirrons-right"  src="grafiche-scappo-dalla-major/PIRRONSDESTRA.gif"   alt="">
+            <img id="spr-major-front"    src="grafiche-scappo-dalla-major/MAJORFRONT.gif"      alt="">
+            <img id="spr-major-back"     src="grafiche-scappo-dalla-major/MAJORBACK.gif"       alt="">
+            <img id="spr-major-left"     src="grafiche-scappo-dalla-major/MAJORSINISTRA.gif"   alt="">
+            <img id="spr-major-right"    src="grafiche-scappo-dalla-major/MAJORDESTRA.gif"     alt="">
+            <img id="spr-soldato"        src="grafiche-scappo-dalla-major/SOLDATO.gif"         alt="">
+            <img id="spr-gestore"        src="grafiche-scappo-dalla-major/GESTOREPUB.gif"      alt="">
+            <img id="spr-npc1"           src="grafiche-scappo-dalla-major/NPCONCERTO1.gif"     alt="">
+            <img id="spr-npc2"           src="grafiche-scappo-dalla-major/NPCONCERTO2.gif"     alt="">
+            <img id="spr-npc3"           src="grafiche-scappo-dalla-major/NPCONCERTO3.gif"     alt="">
+            <img id="spr-npc-coppia"     src="grafiche-scappo-dalla-major/NPCONCERTOCOPPIA.gif" alt="">
+            <img id="spr-npc-gruppo"     src="grafiche-scappo-dalla-major/NPCONCERTOGRUPPO.gif" alt="">
+            <img id="spr-macchina1"      src="grafiche-scappo-dalla-major/MACCHINA1.gif"         alt="">
+            <img id="spr-macchina2"      src="grafiche-scappo-dalla-major/MACCHINA2.gif"         alt="">
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="footer-logo">ILOVEPIRRONS</span>
+            <span class="footer-sep">|</span>
+            <a href="mailto:ilovepirrons@gmail.com" class="footer-link">ilovepirrons@gmail.com</a>
+            <span class="footer-sep">|</span>
+            <span class="footer-piva">P.IVA 12345678901</span>
+        </div>
+    </footer>
+
+    <script src="js/router.js"></script>
+    <script src="js/windows.js"></script>
+    <script src="js/data_discografia.js"></script>
+    <script src="js/blog.js"></script>
+    <script src="js/live.js"></script>
+    <script src="js/download.js"></script>
+    <script src="js/merch.js"></script>
+    <script src="js/discografia.js"></script>
+    <script src="js/gioco.js"></script>
+
+</body>
+</html>

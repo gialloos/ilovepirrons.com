@@ -31,21 +31,23 @@ async function initDownload() {
 function createSongItem(song, index) {
     const item = document.createElement('div');
     item.className = 'song-item';
-    
+    item.id = `song-item-${index}`;
+
+    const duration = song.duration || '0:00';
+
     item.innerHTML = `
+        <span class="song-track-num">${String(index + 1).padStart(2, '0')}</span>
         <div class="song-info">
             <div class="song-title">${song.title}</div>
             <div class="song-artist">${song.artist}</div>
         </div>
+        <span class="song-duration">${duration}</span>
         <div class="song-actions">
-            <button class="song-action-btn" onclick="playSong(${index})">▶ PLAY</button>
-            <button class="song-action-btn download" onclick="downloadSong('${song.file}')">⬇ DOWNLOAD</button>
-            <button class="song-action-btn" onclick="showLyrics(${index})">📝 LYRICS</button>
-            <button class="song-action-btn" onclick="rateSong(${index})">⭐ RATE</button>
-            <button class="song-action-btn" onclick="commentSong(${index})">💬 COMMENT</button>
+            <button class="song-action-btn" onclick="playSong(${index})">▶ play</button>
+            <button class="song-action-btn download" onclick="downloadSong('${song.file}')">⬇ dl</button>
         </div>
     `;
-    
+
     return item;
 }
 
@@ -100,10 +102,15 @@ function setupPlayerControls() {
 // Global scope functions for onclick
 window.playSong = function(index) {
     if (index < 0 || index >= songs.length) return;
-    
+
+    // Update playing highlight
+    document.querySelectorAll('.song-item').forEach(el => el.classList.remove('playing'));
+    const activeItem = document.getElementById(`song-item-${index}`);
+    if (activeItem) activeItem.classList.add('playing');
+
     currentSongIndex = index;
     const song = songs[index];
-    
+
     document.getElementById('now-playing-song').textContent = song.title;
     document.getElementById('player-artist').textContent = song.artist;
     

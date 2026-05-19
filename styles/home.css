@@ -2,10 +2,45 @@
    HOME PAGE SPECIFIC STYLES
    ============================================ */
 
+/* ONDE.mp4: sfondo fisso a tutta pagina */
+.home-fullbg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.home-fullbg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.30;
+}
+
 .home-container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 40px 20px;
+    overflow: hidden;
+}
+
+/* CRUXXX.gif attaccata alla box IE */
+#ie-window {
+    position: relative;
+}
+
+.ie-cruxxx {
+    position: absolute;
+    top: -70px;
+    right: -40px;
+    width: 130px;
+    pointer-events: none;
+    z-index: 5;
+    image-rendering: pixelated;
 }
 
 /* Hero Section */
@@ -152,67 +187,9 @@
     background: #ff0000;
 }
 
-/* Scattered Text */
+/* Scattered Text — nascosti, non interferiscono con il contenuto */
 .scattered-text {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.text-element {
-    position: absolute;
-    font-family: var(--font-pixel);
-    font-size: 32px;
-    font-weight: bold;
-    color: transparent;
-    -webkit-text-stroke: 1px currentColor;
-    opacity: 0.4;
-    filter: drop-shadow(0 0 5px currentColor);
-    animation: float 5s ease-in-out infinite;
-}
-
-.text-element.pink {
-    color: var(--hot-pink);
-    top: 10%;
-    right: 5%;
-    animation-delay: 0s;
-}
-
-.text-element.green {
-    color: var(--green);
-    top: 30%;
-    left: 5%;
-    animation-delay: 0.5s;
-}
-
-.text-element.purple {
-    color: var(--purple);
-    top: 50%;
-    right: 10%;
-    animation-delay: 1s;
-}
-
-.text-element.white {
-    color: var(--white);
-    top: 70%;
-    left: 10%;
-    animation-delay: 1.5s;
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg) scale(1);
-    }
-    33% {
-        transform: translateY(-30px) rotate(15deg) scale(1.1);
-    }
-    66% {
-        transform: translateY(20px) rotate(-10deg) scale(0.9);
-    }
+    display: none;
 }
 
 /* Follow Section */
@@ -224,11 +201,10 @@
 }
 
 .follow-box {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.75);
     border: 1px solid var(--hot-pink);
     padding: 30px;
-    box-shadow: 0 0 15px rgba(255, 20, 147, 0.2);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
 }
 
 .box-title {
@@ -270,22 +246,16 @@
 }
 
 .link-card {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.75);
     border: 1px solid var(--teal);
     padding: 25px;
     text-align: center;
-    transition: all 0.3s;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(3px);
+    transition: border-color 0.2s, transform 0.2s;
 }
 
 .link-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     border-color: var(--light-blue);
-    box-shadow: 
-        0 0 25px var(--light-blue),
-        4px 4px 12px rgba(0, 0, 0, 0.5),
-        inset 0 0 20px rgba(0, 255, 255, 0.2);
 }
 
 .card-icon {
@@ -331,41 +301,80 @@
         padding: 20px 10px;
         max-width: 100vw;
     }
-    
+
+    .hero-section {
+        min-height: unset;
+        margin-bottom: 30px;
+    }
+
     .follow-section {
         grid-template-columns: 1fr;
         gap: 15px;
+        margin: 30px 0;
     }
-    
+
+    .follow-box {
+        padding: 18px;
+    }
+
+    .box-title {
+        font-size: clamp(13px, 4vw, 20px);
+        margin-bottom: 12px;
+    }
+
+    .box-text {
+        font-size: 13px;
+    }
+
     #video-window {
         margin-left: 0;
         margin-top: 20px;
     }
-    
+
     .windows-container {
         flex-direction: column;
         align-items: center;
         width: 100%;
         margin: 0;
     }
-    
+
     .quick-links {
-        grid-template-columns: 1fr;
-        gap: 15px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 30px;
     }
-    
-    /* Riduce/abbassa l'opacità dei testi sparsi per evitare che blocchino la lettura */
+
+    .link-card {
+        padding: 16px 12px;
+    }
+
+    .card-icon {
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    .link-card h3 {
+        font-size: 13px;
+    }
+
+    /* Riduce testi sparsi per non bloccare la lettura */
     .scattered-text {
-        opacity: 0.15;
+        opacity: 0.12;
     }
-    
+
     .text-element {
-        font-size: clamp(12px, 4vw, 20px);
+        font-size: clamp(10px, 3.5vw, 18px);
     }
-    
-    .text-element.pink { top: 5%; right: 2%; }
+
+    .text-element.pink  { top: 5%;  right: 2%; }
     .text-element.green { top: 25%; left: 2%; }
     .text-element.purple { top: 80%; right: 5%; }
-    .text-element.white { display: none; } /* Nasconde uno per ridurre il casino */
+    .text-element.white { display: none; }
+}
+
+@media (max-width: 480px) {
+    .quick-links {
+        grid-template-columns: 1fr;
+    }
 }
 

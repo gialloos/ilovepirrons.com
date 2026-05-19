@@ -98,3 +98,46 @@ function initWindows() {
 window.initWindows = initWindows;
 document.addEventListener('DOMContentLoaded', initWindows);
 
+/* ── Hamburger menu ── */
+function initHamburger() {
+    const nav = document.querySelector('.main-nav .nav-container');
+    if (!nav || document.querySelector('.nav-hamburger')) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'nav-hamburger';
+    btn.setAttribute('aria-label', 'Menu');
+    btn.innerHTML = '<span></span><span></span><span></span>';
+    nav.appendChild(btn);
+
+    const links = nav.querySelector('.nav-links');
+
+    btn.addEventListener('click', () => {
+        const isOpen = links.classList.toggle('open');
+        btn.classList.toggle('open', isOpen);
+    });
+
+    // Chiudi cliccando un link
+    links.addEventListener('click', (e) => {
+        if (e.target.closest('.nav-link')) {
+            links.classList.remove('open');
+            btn.classList.remove('open');
+        }
+    });
+
+    // Chiudi cliccando fuori
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.main-nav')) {
+            links.classList.remove('open');
+            btn.classList.remove('open');
+        }
+    });
+
+    // Chiudi su navigazione SPA
+    window.addEventListener('spa-navigate', () => {
+        links.classList.remove('open');
+        btn.classList.remove('open');
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initHamburger);
+
