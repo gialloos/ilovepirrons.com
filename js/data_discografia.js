@@ -4,78 +4,206 @@ window.DISCOGRAFIA_DATA = [
     "title": "BLA BLA BLA",
     "artist": "ILOVEPIRRONS",
     "year": 2024,
-    "cover": "assets/discografia/blablabla.png",
+    "cover": "assets/covers/bla-bla-bla.jpg",
     "tracks": [
       {
         "title": "BLA BLA BLA",
-        "duration": "2:45",
-        "about": "Nuovo singolo di ILOVEPIRRONS che esplora la superficialità delle parole nelle relazioni moderne.",
-        "funFacts": ["Scritta in meno di 20 minuti", "Prodotta interamente in una cameretta"],
-        "credits": {"Artist": "ILOVEPIRRONS", "Producer": "PIRRONS_PROD"},
+        "duration": "",
+        "about": "Nuovo singolo di ILOVEPIRRONS.",
+        "funFacts": [],
+        "credits": {
+          "Artist": "ILOVEPIRRONS"
+        },
         "lyrics": [
-          {"text": "[Intro]"},
-          {"text": "Ho gli occhi rossi, piango sola sulle banconote"},
-          {"text": "Ho gli occhi rossi, resto sveglia, piango tutta notte"},
-          {"text": "Baby, me l’hai detto mille volte"},
-          {"text": "Ma bla bla bla bla, solo parole", "annotation": {"title": "Superficialità", "text": "Le parole perdono significato quando non sono seguite dai fatti."}},
-          {"text": "Ma bla bla bla bla, solo parole"},
-          {"text": "Ma bla bla bla bla, solo parole"},
-          {"text": "Ma bla bla bla bla, solo parole"},
-          {"text": ""},
-          {"text": "[Ritornello]"},
-          {"text": "Ho gli occhi rossi, piango sola sulle banconote"},
-          {"text": "Ho gli occhi rossi, resto sveglia, piango tutta notte"},
-          {"text": "Baby, me l’hai detto mille volte"},
-          {"text": "Ma bla bla bla bla, solo parole"},
-          {"text": ""},
-          {"text": "[Strofa 1]"},
-          {"text": "Resto sveglia tutta notte, faccio di nuovo le quattro"},
-          {"text": "Mi mandi audio che probabilmente non ascolterò neanche"},
-          {"text": "Fosse Molly avrei un motivo per svegliarmi e piangere"},
-          {"text": "Vado nei club per potеr dire di voler andarmenе"},
-          {"text": ""},
-          {"text": "[Ritornello]"},
-          {"text": "Ho gli occhi rossi, piango sola sulle banconote"},
-          {"text": "Ho gli occhi rossi, resto sveglia, piango tutta notte"},
-          {"text": "Baby, me l’hai detto mille volte"},
-          {"text": "Ma bla bla bla bla, solo parole"},
-          {"text": ""},
-          {"text": "[Strofa 2]"},
-          {"text": "Mi hai detto: \"Io ti aspetto\", poi ti ho ritrovato altrove"},
-          {"text": "Ho detto: \"Fuck brutte situe\", killano le vibes per ore"},
-          {"text": "Molly, molly, molly, forse non sento la pressione"},
-          {"text": "Money, money, money, mi fanno prestare attenzione"},
-          {"text": "Ho fatto di tutto per averlo, adesso non lo voglio"},
-          {"text": "Sentono quando parliamo, te lo scriverò su un foglio"},
-          {"text": "Parlo con Maria anche se lei poi non mi ascolta"},
-          {"text": "Esco con il sole, inizia a piovere a dirotto"},
-          {"text": ""},
-          {"text": "[Ritornello]"},
-          {"text": "Ho gli occhi rossi, piango sola sulle banconote"},
-          {"text": "Ho gli occhi rossi, resto sveglia, piango tutta notte"},
-          {"text": "Baby, me l’hai detto mille volte"},
-          {"text": "Ma bla bla bla bla, solo parole"},
-          {"text": ""},
-          {"text": "[Strofa 3]"},
-          {"text": "Vorrei stare meglio però faccio certe cose"},
-          {"text": "Non prendo mai Perc, ma sono geeked le emozioni"},
-          {"text": "Molly, molly, molly, forse non sento la pressione"},
-          {"text": "Money, money, money, mi fanno prestare attenzione"},
-          {"text": ""},
-          {"text": "[Ritornello]"},
-          {"text": "Ho gli occhi rossi, piango sola sulle banconote"},
-          {"text": "Ho gli occhi rossi, resto sveglia, piango tutta notte"},
-          {"text": "Baby, me l’hai detto mille volte"},
-          {"text": "Ma bla bla bla bla, solo parole"},
-          {"text": "Ho gli occhi rossi, piango sola sulle banconote"},
-          {"text": "Ho gli occhi rossi, resto sveglia, piango tutta notte"},
-          {"text": "Baby, me l’hai detto mille volte"},
-          {"text": "Ma bla bla bla bla, solo parole"},
-          {"text": ""},
-          {"text": "[Outro]"},
-          {"text": "Ma bla bla bla bla, solo parole"},
-          {"text": "Ma bla bla bla bla, solo parole"},
-          {"text": "Ma bla bla bla bla, solo parole"}
+          {
+            "text": "[Intro]"
+          },
+          {
+            "text": "Ho gli occhi rossi, piango sola sulle banconote"
+          },
+          {
+            "text": "Ho gli occhi rossi, resto sveglia, piango tutta notte"
+          },
+          {
+            "text": "Baby, me l’hai detto mille volte"
+          },
+          {
+            "text": "Ma bla bla bla bla, solo parole"
+          },
+          {
+            "text": "Ma bla bla bla bla, solo parole"
+          },
+          {
+            "text": "Ma bla bla bla bla, solo parole"
+          },
+          {
+            "text": "Ma bla bla bla bla, solo parole"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Ritornello]"
+          },
+          {
+            "text": "Ho gli occhi rossi, piango sola sulle banconote"
+          },
+          {
+            "text": "Ho gli occhi rossi, resto sveglia, piango tutta notte"
+          },
+          {
+            "text": "Baby, me l’hai detto mille volte"
+          },
+          {
+            "text": "Ma bla bla bla bla, solo parole"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Strofa 1]"
+          },
+          {
+            "text": "Resto sveglia tutta notte, faccio di nuovo le quattro"
+          },
+          {
+            "text": "Mi mandi audio che probabilmente non ascolterò neanche"
+          },
+          {
+            "text": "Fosse Molly avrei un motivo per svegliarmi e piangere"
+          },
+          {
+            "text": "Vado nei club per potеr dire di voler andarmenе"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Ritornello]"
+          },
+          {
+            "text": "Ho gli occhi rossi, piango sola sulle banconote"
+          },
+          {
+            "text": "Ho gli occhi rossi, resto sveglia, piango tutta notte"
+          },
+          {
+            "text": "Baby, me l’hai detto mille volte"
+          },
+          {
+            "text": "Ma bla bla bla bla, solo parole"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Strofa 2]"
+          },
+          {
+            "text": "Mi hai detto: \"Io ti aspetto\", poi ti ho ritrovato altrove"
+          },
+          {
+            "text": "Ho detto: \"Fuck brutte situe\", killano le vibes per ore"
+          },
+          {
+            "text": "Molly, molly, molly, forse non sento la pressione"
+          },
+          {
+            "text": "Money, money, money, mi fanno prestare attenzione"
+          },
+          {
+            "text": "Ho fatto di tutto per averlo, adesso non lo voglio"
+          },
+          {
+            "text": "Sentono quando parliamo, te lo scriverò su un foglio"
+          },
+          {
+            "text": "Parlo con Maria anche se lei poi non mi ascolta"
+          },
+          {
+            "text": "Esco con il sole, inizia a piovere a dirotto"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Ritornello]"
+          },
+          {
+            "text": "Ho gli occhi rossi, piango sola sulle banconote"
+          },
+          {
+            "text": "Ho gli occhi rossi, resto sveglia, piango tutta notte"
+          },
+          {
+            "text": "Baby, me l’hai detto mille volte"
+          },
+          {
+            "text": "Ma bla bla bla bla, solo parole"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Strofa 3]"
+          },
+          {
+            "text": "Vorrei stare meglio però faccio certe cose"
+          },
+          {
+            "text": "Non prendo mai Perc, ma sono geeked le emozioni"
+          },
+          {
+            "text": "Molly, molly, molly, forse non sento la pressione"
+          },
+          {
+            "text": "Money, money, money, mi fanno prestare attenzione"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Ritornello]"
+          },
+          {
+            "text": "Ho gli occhi rossi, piango sola sulle banconote"
+          },
+          {
+            "text": "Ho gli occhi rossi, resto sveglia, piango tutta notte"
+          },
+          {
+            "text": "Baby, me l’hai detto mille volte"
+          },
+          {
+            "text": "Ma bla bla bla bla, solo parole"
+          },
+          {
+            "text": "Ho gli occhi rossi, piango sola sulle banconote"
+          },
+          {
+            "text": "Ho gli occhi rossi, resto sveglia, piango tutta notte"
+          },
+          {
+            "text": "Baby, me l’hai detto mille volte"
+          },
+          {
+            "text": "Ma bla bla bla bla, solo parole"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Outro]"
+          },
+          {
+            "text": "Ma bla bla bla bla, solo parole"
+          },
+          {
+            "text": "Ma bla bla bla bla, solo parole"
+          },
+          {
+            "text": "Ma bla bla bla bla, solo parole"
+          }
         ]
       }
     ]
@@ -85,129 +213,197 @@ window.DISCOGRAFIA_DATA = [
     "title": "PRESIDENTE",
     "artist": "ILOVEPIRRONS",
     "year": 2024,
-    "cover": "assets/discografia/presidente.png",
+    "cover": "assets/covers/presidente.jpg",
     "tracks": [
       {
         "title": "PRESIDENTE",
-        "duration": "3:02",
-        "about": "Un brano che riflette sull'ambizione e sul potere visto dalle strade.",
-        "funFacts": ["Campionamento di una vecchia TV", "Video girato a Rozzano"],
-        "credits": {"Artist": "ILOVEPIRRONS", "Arrangement": "PIRRONS_TEAM"},
+        "duration": "",
+        "about": "",
+        "funFacts": [],
+        "credits": {
+          "Artist": "ILOVEPIRRONS"
+        },
         "lyrics": [
-          {"text": "[Ritornello]"},
-          {"text": "Vetri neri nelle car come un vero Presidente"},
-          {"text": "Ti vedo con dieci tipe ma nessuna è maggiorenne"},
-          {"text": "A Dubai con la miss così nessuno ti vede"},
-          {"text": "J e lean nelle tracce ma nessuno che la vende"},
-          {"text": "Vetri neri nelle car come un vero Presidente"},
-          {"text": "Ti vedo con dieci tipe ma nessuna è maggiorenne"},
-          {"text": "Al Southsidе sembri timida, al Tocqueville pеr niente"},
-          {"text": "J e lean nelle tracce ma nessuno che la vende"},
-          {"text": ""},
-          {"text": "[Strofa 1]"},
-          {"text": "Lui starebbe con chiunque, te lo giuro che mi scende"},
-          {"text": "Parli di Tony Montana, mi sa non ti ha insegnato niente"},
-          {"text": "Non ci è riuscito tuo padre, cosa posso pretendere?"},
-          {"text": "Non ci è riuscita tua madre, cosa posso pretendere?"},
-          {"text": "Al mio compleanno mi regalerò una whip"},
-          {"text": "Vivrò in una popolare arredata come i Sinthi"},
-          {"text": "Non avevo niente, non ti parlo di vestiti"},
-          {"text": "Non avevo il frigo pieno ma nemmeno un po’ di amici"},
-          {"text": "Chiedevo allo specchio: \"Perché piangi mentre ridi?\""},
-          {"text": "Sapevo che questi sbatti li avrebbe risolti la FIMI"},
-          {"text": "Ora regalo a mio fratello ciò che hanno gli altri bambini"},
-          {"text": "Vedo mamma emozionata, non l’ho fatto per la Birkin"},
-          {"text": ""},
-          {"text": "[Ritornello]"},
-          {"text": "Vetri neri nelle car come un vero Presidente"},
-          {"text": "Ti vedo con dieci tipe ma nessuna è maggiorenne"},
-          {"text": "A Dubai con la miss così nessuno ti vede"},
-          {"text": "J e lean nelle tracce ma nessuno che la vende"},
-          {"text": "Vetri neri nelle car come un vero Presidente"},
-          {"text": "Ti vedo con dieci tipe ma nessuna è maggiorenne"},
-          {"text": "Al Southside sembri timida, al Tocqueville per niente"},
-          {"text": "J e lean nelle tracce ma nessuno che la vende"},
-          {"text": ""},
-          {"text": "[Strofa 2]"},
-          {"text": "Prima senza contratto lavoravo per due euro"},
-          {"text": "Volevo fare a tutti i costi cose che non potevo"},
-          {"text": "Portare mamma in hotel, questa casa non è un albergo"},
-          {"text": "Da dove vengo io i sogni restano dentro al cassetto"},
-          {"text": "Qua pure se non fai una cosa i tuoi la sanno lo stesso"},
-          {"text": "Mio fratello ha fatto cose, non ha scelto"},
-          {"text": "Dove il cognome conta più di chi sei davvero"},
-          {"text": ""},
-          {"text": "[Ponte]"},
-          {"text": "L’acqua che manca in casa"},
-          {"text": "Figli senza padri sono ancora in piazza"},
-          {"text": "Mi sveglio, mi sfogo coi muri della stanza"},
-          {"text": "Diventerò una star, non mi fermerà più l’ansia"},
-          {"text": "Il cibo sempre a tavola"},
-          {"text": "Anche se era ma’ quella che non pranzava mai"},
-          {"text": ""},
-          {"text": "[Ritornello]"},
-          {"text": "Vetri neri nelle car come un vero Presidente"},
-          {"text": "Ti vedo con dieci tipe ma nessuna è maggiorenne"},
-          {"text": "A Dubai con la miss così nessuno ti vede"},
-          {"text": "J e lean nelle tracce ma nessuno che la vende"},
-          {"text": "Vetri neri nelle car come un vero Presidente"},
-          {"text": "Ti vedo con dieci tipe ma nessuna è maggiorenne"},
-          {"text": "Al Southside sembri timida, al Tocqueville per niente"},
-          {"text": "J e lean nelle tracce ma nessuno che la vende"}
-        ]
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "title": "DALLE PARTI MIE",
-    "artist": "ILOVEPIRRONS",
-    "year": 2024,
-    "cover": "assets/discografia/dallepartimie.png",
-    "tracks": [
-      {
-        "title": "DALLE PARTI MIE",
-        "duration": "2:50",
-        "about": "Un inno alle origini e al senso di appartenenza.",
-        "funFacts": ["Registrata in un solo take", "Il beat è ispirato alla vecchia scuola napoletana"],
-        "credits": {"Artist": "ILOVEPIRRONS", "Lyrics": "PIRRONS_VOICE"},
-        "lyrics": [
-          {"text": "[Ritornello]"},
-          {"text": "Stag senza fatig ma maj senza na lira"},
-          {"text": "Stag senza fatig ma maj senza na lira"},
-          {"text": "Stag senza fatig ma maj senza na lira"},
-          {"text": "Stag senza fatig ma maj senza na lira"},
-          {"text": "Vivo in relax tanto arrivo first one"},
-          {"text": ""},
-          {"text": "[Strofa]"},
-          {"text": "First one first one"},
-          {"text": "Sono la fastlife"},
-          {"text": "Voglio lo siano tutte le mie car"},
-          {"text": "Siete freestyler non c'entrate col rap"},
-          {"text": "Ce lo dice una tipa che ha iniziato solo 7 mesi fa"},
-          {"text": "Dovrei stare a Roma chiamarmi sua santità"},
-          {"text": "Odio collane dei rapper, voglio oro come il papa"},
-          {"text": "Se scendo giù da me lo capisco già dall'aria"},
-          {"text": "Che è meglio non uscire oggi proprio non è serata"},
-          {"text": "Bambini con la bici giocano in mezzo alla strada"},
-          {"text": "I papà nella piazzetta arrotondano la giornata"},
-          {"text": "Ho un'amica investе in crypto"},
-          {"text": "Un'altra che si è laureata"},
-          {"text": "Però una li guadagna, l'altra solo li dichiara"},
-          {"text": "Non ho i palazzoni ma posso smokkarе in spiaggia"},
-          {"text": "Non vinco miss italia, ma miss maglietta bagnata"},
-          {"text": "Attento alla tipa che scegli se vieni da me in vacanza"},
-          {"text": "Ti svegli in una cantina se sfotti quella sbagliata"},
-          {"text": ""},
-          {"text": "[Ritornello]"},
-          {"text": "Stag senza fatig ma maj senza na lira"},
-          {"text": "Stag senza fatig ma maj senza na lira"},
-          {"text": "Stag senza fatig ma maj senza na lira"},
-          {"text": "Vivo in relax tanto arrivo first one"},
-          {"text": "Stag senza fatig ma maj senza na lira"},
-          {"text": "Stag senza fatig ma maj senza na lira"},
-          {"text": "Stag senza fatig ma maj senza na lira"},
-          {"text": "Vivo in relax tanto arrivo first one"}
+          {
+            "text": "[Ritornello]"
+          },
+          {
+            "text": "Vetri neri nelle car come un vero Presidente"
+          },
+          {
+            "text": "Ti vedo con dieci tipe ma nessuna è maggiorenne"
+          },
+          {
+            "text": "A Dubai con la miss così nessuno ti vede"
+          },
+          {
+            "text": "J e lean nelle tracce ma nessuno che la vende"
+          },
+          {
+            "text": "Vetri neri nelle car come un vero Presidente"
+          },
+          {
+            "text": "Ti vedo con dieci tipe ma nessuna è maggiorenne"
+          },
+          {
+            "text": "Al Southsidе sembri timida, al Tocqueville pеr niente"
+          },
+          {
+            "text": "J e lean nelle tracce ma nessuno che la vende"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Strofa 1]"
+          },
+          {
+            "text": "Lui starebbe con chiunque, te lo giuro che mi scende"
+          },
+          {
+            "text": "Parli di Tony Montana, mi sa non ti ha insegnato niente"
+          },
+          {
+            "text": "Non ci è riuscito tuo padre, cosa posso pretendere?"
+          },
+          {
+            "text": "Non ci è riuscita tua madre, cosa posso pretendere?"
+          },
+          {
+            "text": "Al mio compleanno mi regalerò una whip"
+          },
+          {
+            "text": "Vivrò in una popolare arredata come i Sinthi"
+          },
+          {
+            "text": "Non avevo niente, non ti parlo di vestiti"
+          },
+          {
+            "text": "Non avevo il frigo pieno ma nemmeno un po’ di amici"
+          },
+          {
+            "text": "Chiedevo allo specchio: \"Perché piangi mentre ridi?\""
+          },
+          {
+            "text": "Sapevo che questi sbatti li avrebbe risolti la FIMI"
+          },
+          {
+            "text": "Ora regalo a mio fratello ciò che hanno gli altri bambini"
+          },
+          {
+            "text": "Vedo mamma emozionata, non l’ho fatto per la Birkin"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Ritornello]"
+          },
+          {
+            "text": "Vetri neri nelle car come un vero Presidente"
+          },
+          {
+            "text": "Ti vedo con dieci tipe ma nessuna è maggiorenne"
+          },
+          {
+            "text": "A Dubai con la miss così nessuno ti vede"
+          },
+          {
+            "text": "J e lean nelle tracce ma nessuno che la vende"
+          },
+          {
+            "text": "Vetri neri nelle car come un vero Presidente"
+          },
+          {
+            "text": "Ti vedo con dieci tipe ma nessuna è maggiorenne"
+          },
+          {
+            "text": "Al Southside sembri timida, al Tocqueville per niente"
+          },
+          {
+            "text": "J e lean nelle tracce ma nessuno che la vende"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Strofa 2]"
+          },
+          {
+            "text": "Prima senza contratto lavoravo per due euro"
+          },
+          {
+            "text": "Volevo fare a tutti i costi cose che non potevo"
+          },
+          {
+            "text": "Portare mamma in hotel, questa casa non è un albergo"
+          },
+          {
+            "text": "Da dove vengo io i sogni restano dentro al cassetto"
+          },
+          {
+            "text": "Qua pure se non fai una cosa i tuoi la sanno lo stesso"
+          },
+          {
+            "text": "Mio fratello ha fatto cose, non ha scelto"
+          },
+          {
+            "text": "Dove il cognome conta più di chi sei davvero"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Ponte]"
+          },
+          {
+            "text": "L’acqua che manca in casa"
+          },
+          {
+            "text": "Figli senza padri sono ancora in piazza"
+          },
+          {
+            "text": "Mi sveglio, mi sfogo coi muri della stanza"
+          },
+          {
+            "text": "Diventerò una star, non mi fermerà più l’ansia"
+          },
+          {
+            "text": "Il cibo sempre a tavola"
+          },
+          {
+            "text": "Anche se era ma’ quella che non pranzava mai"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Ritornello]"
+          },
+          {
+            "text": "Vetri neri nelle car come un vero Presidente"
+          },
+          {
+            "text": "Ti vedo con dieci tipe ma nessuna è maggiorenne"
+          },
+          {
+            "text": "A Dubai con la miss così nessuno ti vede"
+          },
+          {
+            "text": "J e lean nelle tracce ma nessuno che la vende"
+          },
+          {
+            "text": "Vetri neri nelle car come un vero Presidente"
+          },
+          {
+            "text": "Ti vedo con dieci tipe ma nessuna è maggiorenne"
+          },
+          {
+            "text": "Al Southside sembri timida, al Tocqueville per niente"
+          },
+          {
+            "text": "J e lean nelle tracce ma nessuno che la vende"
+          }
         ]
       }
     ]
@@ -217,63 +413,161 @@ window.DISCOGRAFIA_DATA = [
     "title": "BRITNEY",
     "artist": "ILOVEPIRRONS",
     "year": 2024,
-    "cover": "assets/discografia/britney.png",
+    "cover": "assets/covers/britney.jpg",
     "tracks": [
       {
         "title": "BRITNEY",
-        "duration": "2:30",
-        "about": "Un richiamo pop-trap all'icona del 2007.",
-        "funFacts": ["Ispirata a una giornata di follia", "Contiene un omaggio a Oops!... I Did It Again"],
-        "credits": {"Artist": "ILOVEPIRRONS", "Concept": "2007_VIBES"},
+        "duration": "",
+        "about": "",
+        "funFacts": [],
+        "credits": {
+          "Artist": "ILOVEPIRRONS"
+        },
         "lyrics": [
-          {"text": "[Intro]"},
-          {"text": "Mi porti rispetto perché sai da dove vengo"},
-          {"text": "Mi porti rispetto perché sai da dove vengo"},
-          {"text": "Mmmh, ah, Sudditaly, Wifey"},
-          {"text": ""},
-          {"text": "[Ritornello]"},
-          {"text": "Mi sento come Britney, crazy nel 2007"},
-          {"text": "Mi sento come Britney, crazy nel 2007"},
-          {"text": "Per scordarmi dei problemi non devo calarmi niente"},
-          {"text": "La tua lei mi sembra single quando nessuno la vede"},
-          {"text": "Mi sento come Britney, crazy nel 2007"},
-          {"text": "Mi sento come Britney, crazy nel 2007"},
-          {"text": "Per scordarmi dei problemi non devo calarmi niente"},
-          {"text": "La tua lei mi sembra single quando nessuno la vede"},
-          {"text": ""},
-          {"text": "[Strofa 1]"},
-          {"text": "Mi prendo male, chiamo solo mio fratello"},
-          {"text": "Ha 9, fa più brutto del più brutto che ti porti dietro"},
-          {"text": "Se hai cose da dire non mi chiamare al telefono"},
-          {"text": "Brillo, metto al collo tutto l’oro del battesimo"},
-          {"text": "Sbuffo fumo, i miei occhi sono sempre clean"},
-          {"text": "No sippin’ lean, alle 4 non vengo, non sono una teen"},
-          {"text": "Come le tipe col milionario e il loro fit di Shein"},
-          {"text": "Datti da fare, vacci da sola in boutique"},
-          {"text": ""},
-          {"text": "[Pre-Ritornello]"},
-          {"text": "Mi sento come Britney, crazy nel 2007"},
-          {"text": "Mi sento come Britney, crazy nel 2007"},
-          {"text": "Per scordarmi dei problemi non devo calarmi niente"},
-          {"text": "La tua lei mi sembra single quando nessuno la vede"},
-          {"text": ""},
-          {"text": "[Strofa 2]"},
-          {"text": "Sulla scena italiana piscio in piedi come i maschi"},
-          {"text": "Faccio fatica a crederti quando mi parli di sbatti"},
-          {"text": "Arrivo da Rocca Imperiale, non dal centro come gli altri"},
-          {"text": "Da dove vengo io, fra, il problema è proprio nascerci"},
-          {"text": "Come Britney, crazy nel 2007"},
-          {"text": "Come Britney, crazy nel 2007"},
-          {"text": ""},
-          {"text": "[Ritornello]"},
-          {"text": "Mi sento come Britney, crazy nel 2007"},
-          {"text": "Mi sento come Britney, crazy nel 2007"},
-          {"text": "Per scordarmi dei problemi non devo calarmi niente"},
-          {"text": "La tua lei mi sembra single quando nessuno la vede"},
-          {"text": "Mi sento come Britney, crazy nel 2007"},
-          {"text": "Mi sento come Britney, crazy nel 2007"},
-          {"text": "Per scordarmi dei problemi non devo calarmi niente"},
-          {"text": "La tua lei mi sembra single quando nessuno la vede"}
+          {
+            "text": "[Intro]"
+          },
+          {
+            "text": "Mi porti rispetto perché sai da dove vengo"
+          },
+          {
+            "text": "Mi porti rispetto perché sai da dove vengo"
+          },
+          {
+            "text": "Mmmh, ah, Sudditaly, Wifey"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Ritornello]"
+          },
+          {
+            "text": "Mi sento come Britney, crazy nel 2007"
+          },
+          {
+            "text": "Mi sento come Britney, crazy nel 2007"
+          },
+          {
+            "text": "Per scordarmi dei problemi non devo calarmi niente"
+          },
+          {
+            "text": "La tua lei mi sembra single quando nessuno la vede"
+          },
+          {
+            "text": "Mi sento come Britney, crazy nel 2007"
+          },
+          {
+            "text": "Mi sento come Britney, crazy nel 2007"
+          },
+          {
+            "text": "Per scordarmi dei problemi non devo calarmi niente"
+          },
+          {
+            "text": "La tua lei mi sembra single quando nessuno la vede"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Strofa 1]"
+          },
+          {
+            "text": "Mi prendo male, chiamo solo mio fratello"
+          },
+          {
+            "text": "Ha 9, fa più brutto del più brutto che ti porti dietro"
+          },
+          {
+            "text": "Se hai cose da dire non mi chiamare al telefono"
+          },
+          {
+            "text": "Brillo, metto al collo tutto l’oro del battesimo"
+          },
+          {
+            "text": "Sbuffo fumo, i miei occhi sono sempre clean"
+          },
+          {
+            "text": "No sippin’ lean, alle 4 non vengo, non sono una teen"
+          },
+          {
+            "text": "Come le tipe col milionario e il loro fit di Shein"
+          },
+          {
+            "text": "Datti da fare, vacci da sola in boutique"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Pre-Ritornello]"
+          },
+          {
+            "text": "Mi sento come Britney, crazy nel 2007"
+          },
+          {
+            "text": "Mi sento come Britney, crazy nel 2007"
+          },
+          {
+            "text": "Per scordarmi dei problemi non devo calarmi niente"
+          },
+          {
+            "text": "La tua lei mi sembra single quando nessuno la vede"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Strofa 2]"
+          },
+          {
+            "text": "Sulla scena italiana piscio in piedi come i maschi"
+          },
+          {
+            "text": "Faccio fatica a crederti quando mi parli di sbatti"
+          },
+          {
+            "text": "Arrivo da Rocca Imperiale, non dal centro come gli altri"
+          },
+          {
+            "text": "Da dove vengo io, fra, il problema è proprio nascerci"
+          },
+          {
+            "text": "Come Britney, crazy nel 2007"
+          },
+          {
+            "text": "Come Britney, crazy nel 2007"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Ritornello]"
+          },
+          {
+            "text": "Mi sento come Britney, crazy nel 2007"
+          },
+          {
+            "text": "Mi sento come Britney, crazy nel 2007"
+          },
+          {
+            "text": "Per scordarmi dei problemi non devo calarmi niente"
+          },
+          {
+            "text": "La tua lei mi sembra single quando nessuno la vede"
+          },
+          {
+            "text": "Mi sento come Britney, crazy nel 2007"
+          },
+          {
+            "text": "Mi sento come Britney, crazy nel 2007"
+          },
+          {
+            "text": "Per scordarmi dei problemi non devo calarmi niente"
+          },
+          {
+            "text": "La tua lei mi sembra single quando nessuno la vede"
+          }
         ]
       }
     ]
@@ -283,66 +577,170 @@ window.DISCOGRAFIA_DATA = [
     "title": "DOUBLE CS",
     "artist": "ILOVEPIRRONS",
     "year": 2024,
-    "cover": "assets/discografia/doublecs.png",
+    "cover": "assets/covers/double-cs.jpg",
     "tracks": [
       {
         "title": "DOUBLE CS",
-        "duration": "3:15",
-        "about": "Un brano introspettivo sulla dualità tra odio e amore.",
-        "funFacts": ["Il titolo è un gioco di parole con DoubleCheese", "Prodotta durante una notte insonne"],
-        "credits": {"Artist": "ILOVEPIRRONS", "Mix": "CS_SOUND"},
+        "duration": "",
+        "about": "",
+        "funFacts": [],
+        "credits": {
+          "Artist": "ILOVEPIRRONS"
+        },
         "lyrics": [
-          {"text": "[Ritornello]"},
-          {"text": "Ogni notte mi manca qualcosa (Eh)"},
-          {"text": "Ogni notte sbaglio le persone"},
-          {"text": "Ogni volta che penso alle mie cose"},
-          {"text": "Non capisco se faccio peggio ad odiarmi o ad amare te"},
-          {"text": "Ogni notte mi manca qualcosa (Eh)"},
-          {"text": "Ogni notte sbaglio le persone"},
-          {"text": "Ogni volta che penso alle mie cose"},
-          {"text": "Non capisco se faccio peggio ad odiarmi o ad amare te"},
-          {"text": ""},
-          {"text": "[Strofa 1]"},
-          {"text": "Voleva una baddie, con me non gli è andata bene"},
-          {"text": "Sono tutto quello che questi rapper vorrebbero essere"},
-          {"text": "Doublecheese, lo leggo Double CS"},
-          {"text": "Come quando Rondo, ma versione calabrese"},
-          {"text": "Scendo con la tuta, non mi vesto bene"},
-          {"text": "Non mi frega un cazzo del parere che potresti farti"},
-          {"text": "Gioco a farmi stupidi pensieri per capire se riesco ancora a fidarmi"},
-          {"text": "Di quello che mi dici tu, di quello che dicono gli altri (Yeah)"},
-          {"text": ""},
-          {"text": "[Ritornello]"},
-          {"text": "Ogni notte mi manca qualcosa (Eh)"},
-          {"text": "Ogni notte sbaglio le persone"},
-          {"text": "Ogni volta che penso alle mie cose"},
-          {"text": "Non capisco se faccio peggio ad odiarmi o ad amare te"},
-          {"text": "Ogni notte mi manca qualcosa (Eh)"},
-          {"text": "Ogni notte sbaglio le persone"},
-          {"text": "Ogni volta che penso alle mie cose"},
-          {"text": "Non capisco se faccio peggio ad odiarmi o ad amare te"},
-          {"text": ""},
-          {"text": "[Strofa 2]"},
-          {"text": "Vorrei anche mancarti però adesso non mi manchi (Eh)"},
-          {"text": "Spero che ritorni quando ormai sia troppo tardi"},
-          {"text": "Ho pianto solamente per mio zio"},
-          {"text": "Vorrei che mio fratello non passasse quello che ho passato io"},
-          {"text": "Non pensavo di riuscirci ma alla fine ci sono riuscita"},
-          {"text": "Mi pensi ma non mi scrivi, siamo due falsi, ci odiamo per finta"},
-          {"text": "Mi sento blessata, in un anno ho cambiato la mia vita"},
-          {"text": "Ripenso a quando non dormivo sul divano della mia amica"},
-          {"text": ""},
-          {"text": "[Ritornello]"},
-          {"text": "Ogni notte mi manca qualcosa (Eh)"},
-          {"text": "Ogni notte sbaglio le persone"},
-          {"text": "Ogni volta che penso alle mie cose"},
-          {"text": "Non capisco se faccio peggio ad odiarmi o ad amare te"},
-          {"text": ""},
-          {"text": "[Outro]"},
-          {"text": "Vorrei anche mancarti però adesso non mi manchi (Eh)"},
-          {"text": "Spero che ritorni quando ormai sia troppo tardi"},
-          {"text": "Ho pianto solamente per mio zio"},
-          {"text": "Vorrei che mio fratello non passasse quello che ho passato io"}
+          {
+            "text": "[Ritornello]"
+          },
+          {
+            "text": "Ogni notte mi manca qualcosa (Eh)"
+          },
+          {
+            "text": "Ogni notte sbaglio le persone"
+          },
+          {
+            "text": "Ogni volta che penso alle mie cose"
+          },
+          {
+            "text": "Non capisco se faccio peggio ad odiarmi o ad amare te"
+          },
+          {
+            "text": "Ogni notte mi manca qualcosa (Eh)"
+          },
+          {
+            "text": "Ogni notte sbaglio le persone"
+          },
+          {
+            "text": "Ogni volta che penso alle mie cose"
+          },
+          {
+            "text": "Non capisco se faccio peggio ad odiarmi o ad amare te"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Strofa 1]"
+          },
+          {
+            "text": "Voleva una baddie, con me non gli è andata bene"
+          },
+          {
+            "text": "Sono tutto quello che questi rapper vorrebbero essere"
+          },
+          {
+            "text": "Doublecheese, lo leggo Double CS"
+          },
+          {
+            "text": "Come quando Rondo, ma versione calabrese"
+          },
+          {
+            "text": "Scendo con la tuta, non mi vesto bene"
+          },
+          {
+            "text": "Non mi frega un cazzo del parere che potresti farti"
+          },
+          {
+            "text": "Gioco a farmi stupidi pensieri per capire se riesco ancora a fidarmi"
+          },
+          {
+            "text": "Di quello che mi dici tu, di quello che dicono gli altri (Yeah)"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Ritornello]"
+          },
+          {
+            "text": "Ogni notte mi manca qualcosa (Eh)"
+          },
+          {
+            "text": "Ogni notte sbaglio le persone"
+          },
+          {
+            "text": "Ogni volta che penso alle mie cose"
+          },
+          {
+            "text": "Non capisco se faccio peggio ad odiarmi o ad amare te"
+          },
+          {
+            "text": "Ogni notte mi manca qualcosa (Eh)"
+          },
+          {
+            "text": "Ogni notte sbaglio le persone"
+          },
+          {
+            "text": "Ogni volta che penso alle mie cose"
+          },
+          {
+            "text": "Non capisco se faccio peggio ad odiarmi o ad amare te"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Strofa 2]"
+          },
+          {
+            "text": "Vorrei anche mancarti però adesso non mi manchi (Eh)"
+          },
+          {
+            "text": "Spero che ritorni quando ormai sia troppo tardi"
+          },
+          {
+            "text": "Ho pianto solamente per mio zio"
+          },
+          {
+            "text": "Vorrei che mio fratello non passasse quello che ho passato io"
+          },
+          {
+            "text": "Non pensavo di riuscirci ma alla fine ci sono riuscita"
+          },
+          {
+            "text": "Mi pensi ma non mi scrivi, siamo due falsi, ci odiamo per finta"
+          },
+          {
+            "text": "Mi sento blessata, in un anno ho cambiato la mia vita"
+          },
+          {
+            "text": "Ripenso a quando non dormivo sul divano della mia amica"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Ritornello]"
+          },
+          {
+            "text": "Ogni notte mi manca qualcosa (Eh)"
+          },
+          {
+            "text": "Ogni notte sbaglio le persone"
+          },
+          {
+            "text": "Ogni volta che penso alle mie cose"
+          },
+          {
+            "text": "Non capisco se faccio peggio ad odiarmi o ad amare te"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "[Outro]"
+          },
+          {
+            "text": "Vorrei anche mancarti però adesso non mi manchi (Eh)"
+          },
+          {
+            "text": "Spero che ritorni quando ormai sia troppo tardi"
+          },
+          {
+            "text": "Ho pianto solamente per mio zio"
+          },
+          {
+            "text": "Vorrei che mio fratello non passasse quello che ho passato io"
+          }
         ]
       }
     ]
