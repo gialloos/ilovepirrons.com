@@ -7,3 +7,10 @@ devserver.py
 styles_backup/
 grafiche-scappo-dalla-major/
 mappa gioco pirrons/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
