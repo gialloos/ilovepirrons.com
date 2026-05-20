@@ -4,11 +4,13 @@
 
 .download-container {
     max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
     padding: 40px 20px;
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
-    z-index: 2; /* stacking context sopra il video fisso */
+    z-index: 2;
+    box-sizing: border-box;
 }
 
 /* DJLAMA.mp4: sfondo fisso a tutta pagina */
@@ -62,9 +64,11 @@
     border-right-color: #888888;
     border-bottom-color: #888888;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
-    max-width: 600px;
+    width: 100%;
+    max-width: min(600px, 100%);
     margin: 0 auto;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .player-header {
@@ -135,8 +139,10 @@
 .player-controls {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
+    max-width: 100%;
 }
 
 .player-btn {
@@ -232,9 +238,12 @@
     flex-direction: column;
     gap: 0;
     width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     border: 2px solid var(--hot-pink);
     box-shadow: 4px 4px 0 var(--hot-pink);
     background: #050505;
+    box-sizing: border-box;
 }
 
 /* Tracklist header */
@@ -373,11 +382,6 @@
     }
 
     /* Player */
-    .media-player {
-        max-width: 100%;
-        width: 100%;
-    }
-
     .player-body {
         padding: 14px;
     }
