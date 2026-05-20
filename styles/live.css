@@ -294,6 +294,10 @@
     .booking-text {
         font-size: 16px;
     }
+
+    .stream-text {
+        font-size: clamp(20px, 5vw, 32px);
+    }
 }
 
 @media (max-width: 600px) {

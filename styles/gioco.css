@@ -439,3 +439,27 @@
         font-size: 13px;
     }
 }
+
+@media (max-width: 480px) {
+    .mobile-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 380px) {
+    .mobile-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+
+    .mobile-row {
+        gap: 4px;
+    }
+
+    .mobile-controls {
+        gap: 4px;
+    }
+}

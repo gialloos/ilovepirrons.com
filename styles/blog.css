@@ -306,6 +306,18 @@
         font-size: clamp(13px, 3.5vw, 18px);
         letter-spacing: 1px;
     }
+
+    /* Sidebar più stretta su tablet */
+    .post-sidebar {
+        width: 88px;
+        min-width: 88px;
+    }
+
+    .post-avatar-box {
+        width: 62px;
+        height: 62px;
+        font-size: 28px;
+    }
 }
 
 @media (max-width: 600px) {

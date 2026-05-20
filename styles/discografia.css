@@ -399,6 +399,12 @@
         font-size: clamp(12px, 4vw, 24px);
         margin: 25px 0 15px;
     }
+
+    /* Album grid: massimo 2 colonne su tablet */
+    .albums-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+    }
 }
 
 @media (max-width: 968px) {
