@@ -185,5 +185,18 @@ window.downloadSong = async function(index) {
     }
 };
 
+// Ferma e rilascia l'audio quando si lascia la pagina via router SPA.
+// Su mobile lo stream teneva occupata la connessione e il suono continuava
+// dopo aver cambiato pagina; questo libera tutto prima della navigazione.
+function stopAudioForNavigation() {
+    if (audio) {
+        try { audio.pause(); audio.removeAttribute('src'); audio.load(); } catch (e) {}
+        audio = null;
+    }
+    isPlaying = false;
+    currentSongIndex = -1;
+}
+window.addEventListener('spa-navigate', stopAudioForNavigation);
+
 window.initDownload = initDownload;
 document.addEventListener('DOMContentLoaded', initDownload);

@@ -49,6 +49,10 @@ const Router = {
     async navigate(url) {
         if (url === window.location.href) return;
 
+        // Avvisa le pagine che sta per avvenire una navigazione SPA:
+        // download.js ferma/rilascia l'audio, windows.js chiude il menu mobile.
+        window.dispatchEvent(new CustomEvent('spa-navigate', { detail: { url } }));
+
         // Ricarica il GIF per resettare l'animazione ad ogni navigazione
         const gif = this.loadingOverlay.querySelector('.loading-explosion-gif');
         if (gif) { const s = gif.src; gif.src = ''; gif.src = s; }
@@ -78,9 +82,18 @@ const Router = {
     },
 
     async loadPage(url, updateHistory = true) {
-        const response = await fetch(url);
-        const html = await response.text();
-        
+        // Failsafe: se il fetch si impianta (es. rete mobile + audio in streaming),
+        // aborta dopo 8s → navigate() ricade su un reload hard e l'overlay non resta bloccato.
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000);
+        let html;
+        try {
+            const response = await fetch(url, { signal: controller.signal });
+            html = await response.text();
+        } finally {
+            clearTimeout(timeoutId);
+        }
+
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         
