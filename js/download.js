@@ -162,15 +162,27 @@ function formatTime(seconds) {
     return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 }
 
-window.downloadSong = function(index) {
+window.downloadSong = async function(index) {
     const song = songs[index];
     if (!song || !song.file) return;
-    const a = document.createElement('a');
-    a.href = song.file;
-    a.download = `${song.artist} - ${song.title}.mp3`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    const filename = `${song.artist} - ${song.title}.mp3`;
+    try {
+        // Scarica come blob: l'URL blob: non è same-origin per il router SPA,
+        // così il click sull'anchor non viene intercettato e parte il download reale.
+        const resp = await fetch(song.file);
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        const blob = await resp.blob();
+        const url  = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.setAttribute('data-no-router', '');   // doppia sicurezza: il router SPA ignora questo link
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => { a.remove(); URL.revokeObjectURL(url); }, 1000);
+    } catch (err) {
+        console.error('Download fallito:', err, song.file);
+    }
 };
 
 window.initDownload = initDownload;
