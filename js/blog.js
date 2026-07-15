@@ -15,10 +15,14 @@ async function initBlog() {
         const posts = await response.json();
 
         blogFeed.innerHTML = '';
-        posts.forEach((post, index) => {
-            const postElement = createBlogPost(post, index);
-            blogFeed.appendChild(postElement);
-        });
+        if (posts.length) {
+            posts.forEach((post, index) => {
+                const postElement = createBlogPost(post, index);
+                blogFeed.appendChild(postElement);
+            });
+        } else {
+            blogFeed.appendChild(createBlogComingSoon());
+        }
     } catch (error) {
         console.error('Error loading blog posts:', error);
         blogFeed.innerHTML = '<p style="color: var(--hot-pink); padding: 20px;">// error loading entries. try refreshing. //</p>';
@@ -69,6 +73,35 @@ function createBlogPost(post, index) {
         </div>
     `;
 
+    return postDiv;
+}
+
+function createBlogComingSoon() {
+    const postDiv = document.createElement('div');
+    postDiv.className = 'blog-post blog-post--soon';
+    postDiv.innerHTML = `
+        <div class="post-sidebar">
+            <div class="post-avatar-box">🎸</div>
+            <div class="post-username">pirrons</div>
+            <div class="post-online-status"><span class="status-dot"></span> online</div>
+            <div class="post-user-stats">posts: soon<br>☆ member ☆</div>
+        </div>
+        <div class="post-main">
+            <div class="post-header">
+                <h3 class="post-title">coming soon</h3>
+                <span class="post-date">// stay tuned</span>
+            </div>
+            <div class="post-metadata">
+                <span class="post-meta-field">mood: <em>excited ✨</em></span>
+                <span class="post-meta-field">♪ <em>// working on stuff //</em></span>
+            </div>
+            <div class="post-content">
+                <span class="blog-soon-title">COMING SOON</span>
+                <p>il blog sta per aprire ✩ presto qui troverai aggiornamenti, pensieri e dietro le quinte. torna a trovarmi tra poco ♥</p>
+                <p class="blog-soon-sign">— pirrons</p>
+            </div>
+        </div>
+    `;
     return postDiv;
 }
 

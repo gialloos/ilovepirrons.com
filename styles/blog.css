@@ -284,6 +284,45 @@
     color: var(--hot-pink);
 }
 
+/* ── Coming Soon entry (nessun post pubblicato) ── */
+.blog-post--soon .post-content {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.blog-soon-title {
+    display: block;
+    font-family: var(--font-pixel);
+    font-size: clamp(20px, 5vw, 34px);
+    color: var(--hot-pink);
+    text-shadow: 0 0 18px var(--hot-pink);
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    animation: blog-soon-pulse 2s ease-in-out infinite;
+}
+
+.blog-post--soon .post-content p {
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.9;
+}
+
+.blog-soon-sign {
+    margin-top: 16px !important;
+    color: var(--light-blue);
+    font-family: var(--font-bitmap);
+    font-size: 15px;
+}
+
+@keyframes blog-soon-pulse {
+    0%, 100% { opacity: 1;    text-shadow: 0 0 18px var(--hot-pink); }
+    50%      { opacity: 0.72; text-shadow: 0 0 7px  var(--hot-pink); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blog-soon-title { animation: none; }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .blog-container {
