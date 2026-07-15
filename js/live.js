@@ -23,11 +23,34 @@ async function initLive() {
         const upcoming = events.filter(e => new Date(e.date) >= now);
         const past     = events.filter(e => new Date(e.date) <  now);
 
-        upcoming.forEach(event => eventsGrid.appendChild(createEventCard(event, true)));
-        past.forEach(event     => pastEventsGrid.appendChild(createEventCard(event, false)));
+        if (upcoming.length) {
+            upcoming.forEach(event => eventsGrid.appendChild(createEventCard(event, true)));
+        } else {
+            eventsGrid.appendChild(createComingSoon());
+        }
+
+        // La sezione // PAST compare solo quando ci sono davvero eventi passati
+        const pastSection = pastEventsGrid.closest('.events-section');
+        if (past.length) {
+            if (pastSection) pastSection.style.display = '';
+            past.forEach(event => pastEventsGrid.appendChild(createEventCard(event, false)));
+        } else if (pastSection) {
+            pastSection.style.display = 'none';
+        }
     } catch (error) {
         console.error('Error loading events:', error);
     }
+}
+
+function createComingSoon() {
+    const el = document.createElement('div');
+    el.className = 'coming-soon';
+    el.innerHTML = `
+        <span class="coming-soon-title">COMING SOON</span>
+        <p class="coming-soon-text">Le nuove date live sono in preparazione e verranno annunciate a breve. Resta sintonizzato.</p>
+        <span class="coming-soon-badge">// STAY TUNED</span>
+    `;
+    return el;
 }
 
 function escHtml(str) {
